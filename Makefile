@@ -24,12 +24,11 @@ SRCS = \
 	   ft_bzero.c
 
 # Object files and dependency files
-OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
-DEPS = $(addprefix $(DEP_DIR)/, $(SRCS:%.c=%.d))
+OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
+DEPS = $(addprefix $(DEP_DIR)/, $(SRCS:.c=.d))
 
 # Library name
 NAME = libftprintf.a
-TARGET = $(NAME)
 
 # vpath for serching source files in multiple directories
 vpath %.c $(SRC_DIR)
@@ -41,10 +40,11 @@ DFLAGS = -MMD -MP -MF $(@:$(OBJ_DIR)/%.o=$(DEP_DIR)/%.d)
 INC = -I$(INC_DIR)
 
 # Rules for building object files
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(DEP_DIR)/%.d | $(OBJ_DIR)# $(DEP_DIR)
+# $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(DEP_DIR)/%.d | $(OBJ_DIR)
+$(OBJ_DIR)/%.o: %.c %.d | $(OBJ_DIR) $(DEP_DIR)
 	$(CC) $(CFLAGS) $(DFLAGS) $(INC) -c $< -o $@
 
-$(DEP_DIR)/%.d: $(SRC_DIR)/%.c | $(DEP_DIR)
+$(DEP_DIR)/%.d: %.c | $(DEP_DIR)
 	$(CC) $(CFLAGS) $(DFLAGS) $(INC) -c $< -o /dev/null
 
 $(OBJ_DIR):
@@ -54,11 +54,13 @@ $(DEP_DIR):
 	mkdir -p $(DEP_DIR)
 
 # Default target
-all: $(TARGET)
+all: $(NAME)
 
 # Library target
-$(TARGET): $(OBJS)# | $(OBJ_DIR)
+$(NAME): $(OBJS)
 	ar rcs $@ $^
+
+$(OBJS): $(SRCS)
 
 # Clean target
 clean:
@@ -66,11 +68,11 @@ clean:
 
 # Clean and remove library target
 fclean: clean
-	rm -f $(TARGET)
+	rm -f $(NAME)
 
 # Rebuild target
 re: fclean all
 
-# -include $(DEPS)
+-include $(DEPS)
 
 .PHONY: all clean fclean re

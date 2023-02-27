@@ -6,14 +6,13 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 17:10:46 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/02/26 20:24:01 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/02/27 17:08:18 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include <stdio.h>// for: va_list
 # include <stdarg.h>
 
 // # include "process.h"//compile error

@@ -6,12 +6,12 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 11:44:02 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/02/25 16:10:36 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/02/27 14:31:32 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
-#include "../process.h"
+#include "ft_printf.h"
+#include "process.h"
 #include <stdio.h>// deleat this row !!!!  for debug :)
 
 static void	letter_error(char *input, t_state_machine *machine)

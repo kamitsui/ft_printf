@@ -6,13 +6,14 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 20:15:52 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/02/24 17:09:35 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/02/27 17:24:45 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft.h"
-#include "../ft_printf.h"
+#include "libft.h"
+#include "ft_printf.h"
 //#include "../process.h"// why ...............?
+#include <stdio.h>//  remove this !!! use for printf (debug)
 #include <stdlib.h>// remove this !!!  write for debug
 
 //why error if written in "../process.h"

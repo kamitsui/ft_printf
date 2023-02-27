@@ -1,0 +1,18 @@
+add_to_buff	src/process_utils/add_to_buff.c	/^void	add_to_buff(char c, t_state_machine *machine)/
+conv	src/process_utils/conv.c	/^int	conv(char *input, t_state_machine *machine)$/
+conversion	src/conversion.c	/^void	conversion(t_state_machine *machine)$/
+decimal	src/conversion_utils/decimal.c	/^void	decimal(t_state_machine *machine)$/
+e_state	include/process.h	/^\/\/ enum e_state$/
+error	src/process_utils/error.c	/^int	error(char *input, t_state_machine *machine)$/
+flag	src/process_utils/flag.c	/^int	flag(char *input, t_state_machine *machine)$/
+ft_bzero	libft/ft_bzero.c	/^void	ft_bzero(void *s, size_t n)$/
+ft_printf	src/ft_printf.c	/^void	ft_printf(char *input, ...)$/
+ft_strjoin_free	libft/ft_strjoin_free.c	/^char	*ft_strjoin_free(char const *s1, char const */
+functions	include/libft.h	/^\/\/ Additional functions (from libc)$/
+get_nbr	src/conversion_utils/decimal.c	/^void	get_nbr(long num, t_state_machine *machine)$/
+letter	src/process_utils/letter.c	/^int		letter(char *input, t_state_machine *machine)/
+letter_error	src/process_utils/error.c	/^static void	letter_error(char *input, t_state_mach/
+process	src/process.c	/^void	process(char *input, t_state_machine machine)/
+t_f_process	include/process.h	/^typedef int		(*t_f_process)(char *, t_state_machin/
+t_list	include/libft.h	/^}	t_list;$/
+t_state_machine	include/conversion.h	/^typedef void	(*t_f_conversion)(t_state_machine *);/

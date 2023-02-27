@@ -6,12 +6,12 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 19:53:40 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/02/23 20:02:29 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/02/27 14:59:23 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "../process.h"// why ...........?
-#include "../ft_printf.h"
+//#include "process.h"// why ...........?
+#include "ft_printf.h"
 #include <stdio.h> // deleate this !!!!!!!!!!  (used for debug)
 
 // why error if written in "process.h"

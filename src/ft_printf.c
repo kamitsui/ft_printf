@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 14:49:27 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/02/26 20:25:13 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/02/27 15:14:53 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	ft_printf(char *input, ...)
 {
 	t_state_machine	machine;
 	va_list			ap;
-	int				ret;
 
 	va_start(ap, input);
 	machine.ap = &ap;

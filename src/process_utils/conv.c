@@ -6,14 +6,14 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 20:43:25 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/02/24 22:03:05 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/02/27 14:58:13 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft.h"
-#include "../ft_printf.h"
-#include "../process.h"
-#include "../conversion.h"
+#include "libft.h"
+#include "ft_printf.h"
+#include "process.h"
+#include "conversion.h"
 
 int	conv(char *input, t_state_machine *machine)
 {
