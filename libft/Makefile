@@ -1,11 +1,20 @@
 # Directories
+SRC_DIR = src
+OBJ_DIR = obj
 INC_DIR = ../include
+DEP_DIR = .dep
 
 # Source files
-SRCS = ft_bzero.c ft_strjoin_free.c
+SRCS = \
+	   ft_bzero.c \
+	   ft_strjoin_free.c
 
 # Object files and dependency files
-OBJS = $(SRCS:%.c=%.o)
+OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
+DEPS = $(addprefix $(DEP_DIR)/, $(SRCS:%.c=%.d))
+
+# Vpath
+vpath $(SRCS) $(SRC_DIR)
 
 # Library name
 LIB = libft.a
@@ -13,11 +22,17 @@ LIB = libft.a
 # Compiler
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
+DFLAGS = -MMD -MP -MF $(@:$(OBJ_DIR)/%.o=$(DEP_DIR)/%.d)
 INC = -I$(INC_DIR)
 
 # Rules for building object files
-%.o: %.c
-	$(CC) $(CFLAGS) $(INC) -c $< -o $@
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(DEP_DIR)/%.d
+	@mkdir -p $(OBJ_DIR)
+	$(CC) $(CFLAGS) $(DFLAGS) $(INC) -c $< -o $@
+
+$(DEP_DIR)/%.d: $(SRC_DIR)/%.c
+	@mkdir -p $(DEP_DIR)
+	$(CC) $(CFLAGS) $(DFLAGS) $(INC) -c $< -o /dev/null
 
 # Default target
 all: $(LIB)
@@ -26,18 +41,19 @@ all: $(LIB)
 $(LIB): $(OBJS)
 	ar rcs $@ $^
 
-$(OBJS): $(SRCS)
+$(OBJS): $(DEPS)
 
 # Clean target
 clean:
-	rm -f $(OBJS) $(SRCS)
+	rm -fr $(OBJ_DIR) $(DEP_DIR)
 
 # Clean and remove library target
 fclean: clean
 	rm -f $(LIB)
 
 # Rebould target
-re:
-	fclean all
+re: fclean all
+
+#-include $(DEPS)# Why???? error
 
 .PHONY: all clean fclean re
