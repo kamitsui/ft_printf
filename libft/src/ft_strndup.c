@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/14 15:19:07 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/02/28 20:43:33 by kamitsui         ###   ########.fr       */
+/*   Created: 2023/01/26 15:04:52 by kamitsui          #+#    #+#             */
+/*   Updated: 2023/01/26 16:13:21 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <stdlib.h>
+#include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+char	*ft_strndup(const char *s1, size_t n)
 {
-	char	*p_s;
+	size_t	len;
+	char	*result;
 
-	p_s = s;
-	while (n-- > 0)
-		*(p_s++) = 0;
+	len = ft_strnlen(s1, n);
+	result = malloc(sizeof(char) * (len + 1));
+	if (!result)
+		return (NULL);
+	result[len] = '\0';
+	return (ft_memcpy(result, s1, len));
 }

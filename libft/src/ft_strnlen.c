@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strnlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/14 15:19:07 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/02/28 20:43:33 by kamitsui         ###   ########.fr       */
+/*   Created: 2023/01/18 21:47:08 by kamitsui          #+#    #+#             */
+/*   Updated: 2023/01/26 21:24:28 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-void	ft_bzero(void *s, size_t n)
+size_t	ft_strnlen(const char *s, size_t maxlen)
 {
-	char	*p_s;
+	size_t	len;
 
-	p_s = s;
-	while (n-- > 0)
-		*(p_s++) = 0;
+	len = 0;
+	if (!maxlen)
+		return (len);
+	while (*s)
+	{
+		if (len == maxlen)
+			break ;
+		len++;
+		s++;
+	}
+	return (len);
 }

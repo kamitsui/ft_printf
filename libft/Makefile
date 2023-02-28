@@ -7,7 +7,18 @@ DEP_DIR = .dep
 # Source files
 SRCS = \
 	   ft_bzero.c \
-	   ft_strjoin_free.c
+	   ft_itoa_binary.c \
+	   ft_memcpy.c \
+	   ft_strjoin_free.c \
+	   ft_strlcat.c \
+	   ft_strlcpy.c \
+	   ft_strlen.c \
+	   ft_strncat.c \
+	   ft_strncmp.c \
+	   ft_strndup.c \
+	   ft_strnequ.c \
+	   ft_strnew.c \
+	   ft_strnlen.c
 
 # Object files and dependency files
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))

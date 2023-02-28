@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/14 15:19:07 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/02/28 20:43:33 by kamitsui         ###   ########.fr       */
+/*   Created: 2023/01/14 15:20:05 by kamitsui          #+#    #+#             */
+/*   Updated: 2023/01/20 22:40:50 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-void	ft_bzero(void *s, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	char	*p_s;
+	char		*d;
+	const char	*s;
 
-	p_s = s;
-	while (n-- > 0)
-		*(p_s++) = 0;
+	d = dst;
+	s = src;
+	if (d == NULL && s == NULL)
+		return (dst);
+	while (n--)
+		*d++ = *s++;
+	return (dst);
 }

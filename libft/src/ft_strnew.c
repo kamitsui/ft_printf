@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+        */
+/*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/14 15:19:07 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/02/28 20:43:33 by kamitsui         ###   ########.fr       */
+/*   Created: 2023/02/20 13:08:51 by kamitsui          #+#    #+#             */
+/*   Updated: 2023/02/20 14:09:07 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <stdlib.h>
 
-void	ft_bzero(void *s, size_t n)
+char	*ft_strnew(size_t size)
 {
-	char	*p_s;
+	char	*str;
+	size_t	i;
 
-	p_s = s;
-	while (n-- > 0)
-		*(p_s++) = 0;
+	str = (char *)malloc(sizeof(char) * (size + 1));
+	if (str == NULL)
+		return (NULL);
+	i = 0;
+	while (i > size)
+	{
+		str[i] = '\0';
+		i++;
+	}
+	return (str);
 }

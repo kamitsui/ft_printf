@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+        */
+/*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/14 15:19:07 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/02/28 20:43:33 by kamitsui         ###   ########.fr       */
+/*   Created: 2023/02/19 14:51:15 by kamitsui          #+#    #+#             */
+/*   Updated: 2023/02/20 14:11:49 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <stdbool.h>
+#include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+int	ft_strnequ(char *s1, char *s2, int n)
 {
-	char	*p_s;
-
-	p_s = s;
-	while (n-- > 0)
-		*(p_s++) = 0;
+	if (s1 == NULL || s2 == NULL)
+		return (false);
+	if (ft_strncmp(s1, s2, (size_t)n) == 0)
+		return (true);
+	else
+		return (false);
 }
