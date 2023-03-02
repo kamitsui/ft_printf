@@ -35,7 +35,7 @@ vpath %.c $(SRC_DIR)
 
 # Compiler
 CC = clang
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 DFLAGS = -MMD -MP -MF $(@:$(OBJ_DIR)/%.o=$(DEP_DIR)/%.d)
 INC = -I$(INC_DIR)
 
@@ -49,6 +49,8 @@ $(OBJ_DIR)/%.o: %.c
 $(DEP_DIR)/%.d: %.c
 	@mkdir -p $(DEP_DIR)
 	$(CC) $(CFLAGS) $(DFLAGS) $(INC) -c $< -o /dev/null
+
+#$(DEPS):
 
 # Default target
 all: $(NAME)
@@ -71,6 +73,6 @@ fclean: clean
 # Rebuild target
 re: fclean all
 
-#-include $(DEPS)
+#include $(DEPS)
 
 .PHONY: all clean fclean re
