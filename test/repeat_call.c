@@ -6,6 +6,7 @@ int	main(void)
 {
 	ft_printf("12345");
 	ft_printf("67890");
-	//system("leaks a.out");
+	ft_printf("qwertyuiop");
+	system("leaks a.out");
 	return (0);
 }
