@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 20:15:52 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/02/27 17:24:45 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/01 17:02:47 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,17 @@ int	flag(char *input, t_state_machine *machine)
 			size = 2;
 		else
 			size = 1;
-		if (ft_strnequ(input, str_flag[i], size == TRUE))
+		if (ft_strnequ(input, str_flag[i], size) == TRUE)
 		{
 			machine->flag |= (1 << i);
 			char *flag_bin = ft_itoa_binary(machine->flag);
-			printf("cur = '%s' state = FLAG\tflag = '%d'\t%s\n", str_flag[i], machine->flag, flag_bin);
+			printf("cur = '%c' state = FLAG\tflag = '%d'\t%s\n", *input, machine->flag, flag_bin);
+			//printf("cur = '%s' state = FLAG\tflag = '%d'\t%s\n", str_flag[i], machine->flag, flag_bin);
 			free(flag_bin);
 			return (size);
 		}
+		i++;
 	}
 	machine->state = CONV;
-	return (size);
+	return (0);
 }

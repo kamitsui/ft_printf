@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 20:03:43 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/02/27 14:32:02 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/01 18:48:06 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ void	add_to_buff(char c, t_state_machine *machine)
 		//ft_strjoin_free(machine->out, machine->buffer);
 		ft_bzero(&machine->buffer, 4096);
 		machine->len = 0;
+		machine->out_size++;
 	}
 	machine->buffer[machine->len] = c;
 	machine->len++;
+	machine->out_size++;
 }
