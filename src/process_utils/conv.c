@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 20:43:25 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/01 18:02:30 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/03 15:33:54 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int	conv(char *input, t_state_machine *machine)
 		{
 			machine->flag |= (1 << i) << 8;
 			printf("cur = '%c' | state = CONV \t| flag = %s (%d)\n", *input, ft_itoa_binary(machine->flag), machine->flag);
-			//conversion(machine);
+			printf("------ conversion(machine) ------ diouxXpsc%%\n");
+			conversion(machine);
 			printf("buffer: %s\t after conversion\n", machine->buffer);// delete this !!!!!!!!!! witten for debug
 			machine->flag = 0;
 			machine->state = LETTER;
