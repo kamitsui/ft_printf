@@ -28,7 +28,7 @@ DEPS = $(addprefix $(DEP_DIR)/, $(SRCS:.c=.d))
 
 # Library name
 NAME = libftprintf.a
-LIBFT = libft/libft.a
+LIBFT = $(LIBFT_DIR)/libft.a
 
 # vpath for serching source files in multiple directories
 vpath %.c $(SRC_DIR)
@@ -37,18 +37,19 @@ vpath %.c $(SRC_DIR)
 CC = clang
 CFLAGS = -Wall -Wextra -Werror -g
 DFLAGS = -MMD -MP -MF $(@:$(OBJ_DIR)/%.o=$(DEP_DIR)/%.d)
-INC = -I$(INC_DIR)
+IFLAGS = -I$(INC_DIR)
+#LFLAGS = -L$(LIBFT_DIR) -lft
 
 # Rules for building object files
 #$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(SRC_DIR)/%/%.c $(DEP_DIR)/%.d
 $(OBJ_DIR)/%.o: %.c
 	@mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) $(DFLAGS) $(INC) -c $< -o $@
+	$(CC) $(CFLAGS) $(DFLAGS) $(IFLAGS) -c $< -o $@
 
 #$(DEP_DIR)/%.d: $(SRC_DIR)/%.c $(SRC_DIR)/%/%.c
 $(DEP_DIR)/%.d: %.c
 	@mkdir -p $(DEP_DIR)
-	$(CC) $(CFLAGS) $(DFLAGS) $(INC) -c $< -o /dev/null
+	$(CC) $(CFLAGS) $(DFLAGS) $(IFLAGS) -c $< -o /dev/null
 
 #$(DEPS):
 
@@ -57,10 +58,13 @@ all: $(NAME)
 
 # Library target
 $(NAME): $(LIBFT) $(DEPS) $(OBJS)
-	ar rcs $@ $^
+	cp $(LIBFT) $@
+	ar rcs $@ $(OBJS)
+#	ranlib $@
+#	ar rcs $@ $^
 
 $(LIBFT):
-	make -C $(LIBFT_DIR)
+	$(MAKE) -C $(LIBFT_DIR)
 
 # Clean target
 clean:
