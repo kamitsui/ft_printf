@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 20:15:55 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/02/27 15:09:06 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/06 18:55:45 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	get_nbr(long num, t_state_machine *machine)
 		add_to_buff('-', machine);
 		if (num < -9)
 			get_nbr(num / (-10), machine);
+		add_to_buff(-1 * (num % 10) + '0', machine);
+		return ;
 	}
 	if (num > 9)
 		get_nbr(num / 10, machine);
