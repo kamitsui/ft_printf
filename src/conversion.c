@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 16:33:23 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/02/25 16:47:13 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/06 21:09:21 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 void	conversion(t_state_machine *machine)
 {
-	static t_f_conversion	f_conversion[1] = {decimal};
+	static t_f_conversion	f_conversion[10] = {decimal, decimal, u_decimal, octal, hexadecimal, hexadecimal_major, pointer, character, string, percent};
 	int						i;
 
 	i = 0;

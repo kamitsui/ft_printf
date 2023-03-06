@@ -20,7 +20,15 @@ SRCS = \
 	   error.c \
 	   add_to_buff.c \
 	   \
-	   decimal.c
+	   decimal.c \
+	   u_decimal.c \
+	   octal.c \
+	   hexadecimal.c \
+	   hexadecimal_major.c \
+	   pointer.c \
+	   character.c \
+	   string.c \
+	   percent.c
 
 # Object files and dependency files
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
