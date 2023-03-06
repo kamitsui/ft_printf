@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 14:49:27 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/02 22:00:21 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/04 16:21:54 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,14 @@ static void initialize_machine(t_state_machine *machine, va_list *ap)
 	machine->out = ft_strnew(1);
 	ft_bzero((void *)machine->out, 1);
 	machine->out_size = 0;
-	printf("-------- initialize -------\n");
-	printf("ap (%p) || state (%d) || ", machine->ap, machine->state);
-	printf("len (%d) || buffer (%s) || buff_size (%lu) || ", machine->len, machine->buffer, sizeof(machine->buffer));
-	char *flag_bin = ft_itoa_binary(machine->flag);
-	printf("flag (%d) (b0%s) || ", machine->flag, flag_bin);
-	free(flag_bin);
-	printf("out (%s) || out_size (%d) || out_size (%lu)\n", machine->out, machine->out_size, sizeof(machine->out));
+//	degug code
+//	printf("-------- initialize -------\n");
+//	printf("ap (%p) || state (%d) || ", machine->ap, machine->state);
+//	printf("len (%d) || buffer (%s) || buff_size (%lu) || ", machine->len, machine->buffer, sizeof(machine->buffer));
+//	char *flag_bin = ft_itoa_binary(machine->flag);
+//	printf("flag (%d) (b0%s) || ", machine->flag, flag_bin);
+//	free(flag_bin);
+//	printf("out (%s) || out_size (%d) || out_size (%lu)\n", machine->out, machine->out_size, sizeof(machine->out));
 }
 
 void	ft_printf(char *input, ...)
@@ -44,17 +45,19 @@ void	ft_printf(char *input, ...)
 	va_start(ap, input);
 	initialize_machine(&machine, &ap);
 	process(input, &machine);
-	printf("------- process finished ------\n");
-	printf("buffer (%s) || out (%s)\n", machine.buffer, machine.out);
+//	debug code
+//	printf("------- process finished ------\n");
+//	printf("buffer (%s) || out (%s)\n", machine.buffer, machine.out);
 	machine.out = ft_strjoin_free(machine.out, machine.buffer);
-	printf("------- strjoin_free finished ------\n");
-	printf("buffer (%s) || out (%s)\n", machine.buffer, machine.out);
-	printf("+++++++ write of ft_printf +++++++\n");
+//	debug code
+//	printf("------- strjoin_free finished ------\n");
+//	printf("buffer (%s) || out (%s)\n", machine.buffer, machine.out);
+//	printf("+++++++ write of ft_printf +++++++\n");
 	write(1, machine.out, machine.out_size);
 	free(machine.out);
 	machine.out = NULL;
-	//free(&machine.out);//does not freed because the pointer was not allocated
-	printf("\n------- after free ------\n");
-	printf("buffer (%s) || out (%s)\n", machine.buffer, machine.out);
+//	debug code
+//	printf("\n------- after free ------\n");
+//	printf("buffer (%s) || out (%s)\n", machine.buffer, machine.out);
 	va_end(ap);
 }

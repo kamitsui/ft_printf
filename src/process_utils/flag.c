@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 20:15:52 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/01 17:02:47 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/04 16:26:28 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "ft_printf.h"
 //#include "../process.h"// why ...............?
 #include <stdio.h>//  remove this !!! use for printf (debug)
-#include <stdlib.h>// remove this !!!  write for debug
+#include <stdlib.h>
 
 //why error if written in "../process.h"
 # define FLAG_HH	"hh"
@@ -49,8 +49,7 @@ int	flag(char *input, t_state_machine *machine)
 		{
 			machine->flag |= (1 << i);
 			char *flag_bin = ft_itoa_binary(machine->flag);
-			printf("cur = '%c' state = FLAG\tflag = '%d'\t%s\n", *input, machine->flag, flag_bin);
-			//printf("cur = '%s' state = FLAG\tflag = '%d'\t%s\n", str_flag[i], machine->flag, flag_bin);
+//			printf("cur = '%c' state = FLAG\tflag = '%d'\t%s\n", *input, machine->flag, flag_bin);
 			free(flag_bin);
 			return (size);
 		}
