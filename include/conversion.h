@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 21:27:32 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/06 20:34:25 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/07 17:32:06 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ void	pointer(t_state_machine *machine);
 void	character(t_state_machine *machine);
 void	string(t_state_machine *machine);
 void	percent(t_state_machine *machine);
+char	*itoa_buff(unsigned int num, char *str, int base, t_state_machine *machine);
 
 #endif

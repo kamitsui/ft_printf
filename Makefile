@@ -28,7 +28,8 @@ SRCS = \
 	   pointer.c \
 	   character.c \
 	   string.c \
-	   percent.c
+	   percent.c \
+	   itoa_buff.c
 
 # Object files and dependency files
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
