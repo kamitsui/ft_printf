@@ -1,19 +1,17 @@
 
-
-//#include <stddef.h>
-//#include <stdarg.h>
-//#include "libft.h"
+#include "libft.h"
 #include "ft_printf.h"
 #include "process.h"
 
 static char	get_digit(unsigned int num, int base, t_state_machine *machine)
 {
 	num %= base;
-	if (base == 8 || base == 10)
+	if (base == 8 || base == 10 || num < 10)
 		return (num + '0');
 	else
 	{
-		if ((machine->flag & X_CONV) == TRUE)
+		num -= 10;
+		if ((machine->flag & X_CONV) != FALSE)
 			return (num + 'a');
 		else
 			return (num + 'A');

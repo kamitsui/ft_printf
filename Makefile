@@ -24,7 +24,6 @@ SRCS = \
 	   u_decimal.c \
 	   octal.c \
 	   hexadecimal.c \
-	   hexadecimal_major.c \
 	   pointer.c \
 	   character.c \
 	   string.c \
