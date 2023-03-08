@@ -40,5 +40,10 @@ int	main(void)
 	free(h);
 	ft_printf("%p,%p,%p,asdf:%p,c:%p,s:%p,i:%p,h:%p,%lu:%p\tft_printf\n", (void *)0, (void *)1, (void *)0xff, "asdf", &c, &s[0], &i, &h[0], ULONG_MAX, (void *)~0);
 	// %c test is char.c
+	printf("---- %%s ----\n");
+	printf("%s\n", "42 tokyo");
+	ft_printf("%s\n", "42 tokyo");
+	printf("%s\n", (void *)0);
+	ft_printf("%s\n", (void *)0);
 	return 0;
 }
