@@ -22,7 +22,7 @@ static int	itoa_len(unsigned long num, long base)
 {
 	int	len;
 
-	len = 2;
+	len = 1;
 	if (num < (unsigned long)base)
 		return (len);
 	while (num >= (unsigned long)base)
@@ -40,10 +40,9 @@ char	*itoa_buff(unsigned long num, char *str, int base, t_state_machine *machine
 
 	len = itoa_len(num, base);
 	str[len] = '\0';
-	len--;
 	while (len > 0)
 	{
-		str[len] = get_digit(num, base, machine);
+		str[len - 1] = get_digit(num, base, machine);
 		num /= base;
 		len--;
 	}
