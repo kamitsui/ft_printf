@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 17:10:46 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/02 16:30:18 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/08 15:11:45 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,6 @@ typedef struct s_state_machine
 }				t_state_machine;
 
 void	process(char *input, t_state_machine *machine);
-void	ft_printf(char *input, ...);
+int		ft_printf(char *input, ...);
 
 #endif

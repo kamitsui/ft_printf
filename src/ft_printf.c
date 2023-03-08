@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 14:49:27 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/04 16:21:54 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/08 15:12:23 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void initialize_machine(t_state_machine *machine, va_list *ap)
 //	printf("out (%s) || out_size (%d) || out_size (%lu)\n", machine->out, machine->out_size, sizeof(machine->out));
 }
 
-void	ft_printf(char *input, ...)
+int	ft_printf(char *input, ...)
 {
 	t_state_machine	machine;
 	va_list			ap;
@@ -60,4 +60,5 @@ void	ft_printf(char *input, ...)
 //	printf("\n------- after free ------\n");
 //	printf("buffer (%s) || out (%s)\n", machine.buffer, machine.out);
 	va_end(ap);
+	return (machine.out_size);
 }
