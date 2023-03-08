@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <limits.h>
+#include <stdlib.h>
 #include "ft_printf.h"
+#include "libft.h"
 
 int	main(void)
 {
@@ -30,7 +32,12 @@ int	main(void)
 	ft_printf("---- %%X ----\n");
 	printf("%X,%X,%X,%X,%X\tprintf\n", 0x0, 0xFF, INT_MAX, UINT_MAX, UINT_MAX+1);
 	ft_printf("%X,%X,%X,%X,%X\tft_printf\n", 0x0, 0xFF, INT_MAX, UINT_MAX, UINT_MAX+1);
-	ft_printf("---- %%lX ----\n");
+	ft_printf("---- %%lX ---- not check\n");
 	printf("%lX,%lX,%lX\tprintf\n", (long)UINT_MAX, (long)UINT_MAX+1, LONG_MAX);
+	ft_printf("---- %%p ----\n");
+	char c='p';	char s[10]="123456789"; int i=42; char *h=ft_strnew(42);
+	printf("%p,%p,%p,asdf:%p,c:%p,s:%p,i:%p,h:%p,%lu:%p\tprintf\n", (void *)0, (void *)1, (void *)0xff, "asdf", &c, &s[0], &i, &h[0], ULONG_MAX, (void *)~0);
+	free(h);
+	ft_printf("%p,%p,%p,asdf:%p,c:%p,s:%p,i:%p,h:%p,%lu:%p\tft_printf\n", (void *)0, (void *)1, (void *)0xff, "asdf", &c, &s[0], &i, &h[0], ULONG_MAX, (void *)~0);
 	return 0;
 }

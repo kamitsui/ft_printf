@@ -3,7 +3,7 @@
 #include "ft_printf.h"
 #include "process.h"
 
-static char	get_digit(unsigned int num, int base, t_state_machine *machine)
+static char	get_digit(unsigned long num, int base, t_state_machine *machine)
 {
 	num %= base;
 	if (base == 8 || base == 10 || num < 10)
@@ -11,21 +11,21 @@ static char	get_digit(unsigned int num, int base, t_state_machine *machine)
 	else
 	{
 		num -= 10;
-		if ((machine->flag & X_CONV) != FALSE)
+		if ((machine->flag & (X_CONV | P_CONV)) != FALSE)
 			return (num + 'a');
 		else
 			return (num + 'A');
 	}
 }
 
-static int	itoa_len(unsigned int num, int base)
+static int	itoa_len(unsigned long num, long base)
 {
 	int	len;
 
 	len = 2;
-	if (num < (unsigned int)base)
+	if (num < (unsigned long)base)
 		return (len);
-	while (num >= (unsigned int)base)
+	while (num >= (unsigned long)base)
 	{
 		len++;
 		num /= base;
@@ -34,7 +34,7 @@ static int	itoa_len(unsigned int num, int base)
 }
 
 //IDEA change of name ... t_state_machine -> t_st_machine
-char	*itoa_buff(unsigned int num, char *str, int base, t_state_machine *machine)
+char	*itoa_buff(unsigned long num, char *str, int base, t_state_machine *machine)
 {
 	int	len;
 
