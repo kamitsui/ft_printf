@@ -39,8 +39,6 @@ int	main(void)
 	printf("%p,%p,%p,asdf:%p,c:%p,s:%p,i:%p,h:%p,%lu:%p\tprintf\n", (void *)0, (void *)1, (void *)0xff, "asdf", &c, &s[0], &i, &h[0], ULONG_MAX, (void *)~0);
 	free(h);
 	ft_printf("%p,%p,%p,asdf:%p,c:%p,s:%p,i:%p,h:%p,%lu:%p\tft_printf\n", (void *)0, (void *)1, (void *)0xff, "asdf", &c, &s[0], &i, &h[0], ULONG_MAX, (void *)~0);
-	ft_printf("---- %%c ----\n");
-	printf("%c,%c,%c,%c,%c,%c,%c<-(tab),%c<-(nl),%c<-(null),%c<-(del) ??? Why blank space\tprintf\n", 'a', 'z', 'A', 'Z', '0', '9', '\t', '\n', 0x0, 0x7f);
-	ft_printf("%c,%c,%c,%c,%c,%c,%c<-(tab),%c<-(nl),%c<-(null),%c<-(del) ??? Why blank space\tft_printf\n", 'a', 'z', 'A', 'Z', '0', '9', '\t', '\n', 0x0, 0x7f);
+	// %c test is char.c
 	return 0;
 }
