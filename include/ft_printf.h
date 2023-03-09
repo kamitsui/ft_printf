@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 17:10:46 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/08 15:11:45 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/09 17:33:41 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <stdarg.h>
 
-// # include "process.h"//compile error
 enum e_state
 {
 	LETTER,
@@ -25,20 +24,21 @@ enum e_state
 	END
 };
 
-typedef struct s_state_machine
+typedef struct s_sm
 {
 	enum e_state	state;
 	va_list			*ap;
 	char			buffer[4096];
-	int			len;
-	//size_t			len;
+	int				len;
 	char			*out;
-	int			out_size;
-	//size_t			out_size;
+	int				out_size;
 	int				flag;
-}				t_state_machine;
+}	t_sm;
 
-void	process(char *input, t_state_machine *machine);
+void	process(char *input, t_sm *machine);
 int		ft_printf(char *input, ...);
 
 #endif
+// void this code
+	//size_t			len;
+	//size_t			out_size;

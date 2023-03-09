@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pointer.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/09 14:42:12 by kamitsui          #+#    #+#             */
+/*   Updated: 2023/03/09 17:15:41 by kamitsui         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <stddef.h>
 #include <stdarg.h>
@@ -5,14 +16,15 @@
 #include "ft_printf.h"
 #include "process.h"
 #include "conversion.h"
+#include "unsigned_arg.h"
 
-static void	add_prefix(t_state_machine *machine)
+static void	add_prefix(t_sm *machine)
 {
 	add_to_buff('0', machine);
 	add_to_buff('x', machine);
 }
 
-void	pointer(t_state_machine *machine)
+void	pointer(t_sm *machine)
 {
 	char			str[42];
 	void			*p;

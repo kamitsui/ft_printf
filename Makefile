@@ -1,8 +1,21 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/03/09 14:39:52 by kamitsui          #+#    #+#              #
+#    Updated: 2023/03/09 18:11:42 by kamitsui         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 # Directories
 #SRC_DIR = src
 SRC_DIR = src \
 		  src/process_utils \
-		  src/conversion_utils
+		  src/conversion_utils \
+		  src/conversion_utils/unsigned_arg
 OBJ_DIR = obj
 INC_DIR = include
 DEP_DIR = .dep
@@ -29,7 +42,13 @@ SRCS = \
 	   string.c \
 	   percent.c \
 	   itoa_buff.c \
-	   u_va_arg.c
+	   \
+	   u_va_arg.c \
+	   u_hh.c \
+	   u_ll.c \
+	   u_h.c \
+	   u_l.c \
+	   u_int.c
 
 # Object files and dependency files
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))

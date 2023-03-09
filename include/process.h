@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 17:20:59 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/02/24 21:53:58 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/09 17:34:26 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,15 @@
 # define S_CONV		0x010000
 # define PER_CONV	0x020000
 
-typedef int		(*t_f_process)(char *, t_state_machine *);
-int		letter(char *input, t_state_machine *machine);
-int		flag(char *input, t_state_machine *machine);
-int		conv(char *input, t_state_machine *machine);
-int		error(char *input, t_state_machine *machine);
-void	add_to_buff(char c, t_state_machine *machine);
+typedef int		(*t_f_process)(char *, t_sm *);
+int		letter(char *input, t_sm *machine);
+int		flag(char *input, t_sm *machine);
+int		conv(char *input, t_sm *machine);
+int		error(char *input, t_sm *machine);
+void	add_to_buff(char c, t_sm *machine);
 
+#endif
+//---- Moved to ft_printf.h the following code ---- 
 // enum e_state
 // {
 // 	LETTER,
@@ -65,5 +67,3 @@ void	add_to_buff(char c, t_state_machine *machine);
 // 	ERROR,
 // 	END
 // };
-
-#endif

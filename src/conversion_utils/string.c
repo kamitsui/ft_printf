@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   string.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/09 14:43:50 by kamitsui          #+#    #+#             */
+/*   Updated: 2023/03/09 17:16:17 by kamitsui         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdarg.h>
 #include "ft_printf.h"
 #include "process.h"
 #include "libft.h"
 
-void	string(t_state_machine *machine)
+void	string(t_sm *machine)
 {
 	char	*str;
 	size_t	len;

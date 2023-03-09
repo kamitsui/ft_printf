@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 16:33:23 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/07 20:12:40 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/09 17:39:22 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 #include "process.h"
 #include "conversion.h"
 
-void	conversion(t_state_machine *machine)
+void	conversion(t_sm *machine)
 {
-	static t_f_conversion	f_conversion[10] = {decimal, decimal, u_decimal, octal, hexadecimal, hexadecimal, pointer, character, string, percent};
+	static t_f_conversion	f_conversion[10] = {decimal, decimal, u_decimal,
+		octal, hexadecimal, hexadecimal, pointer, character, string, percent};
 	int						i;
 
 	i = 0;
@@ -27,12 +28,9 @@ void	conversion(t_state_machine *machine)
 		i++;
 	}
 }
-
-/*
-	// NULL guard is required ??
-	if (machine == NULL)
-	{
-		machine->state = -1;
-		return ;
-	}
-*/
+// NULL guard is required ??
+//	if (machine == NULL)
+//	{
+//		machine->state = -1;
+//		return ;
+//	}

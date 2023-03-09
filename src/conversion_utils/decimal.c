@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 20:15:55 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/06 18:55:45 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/09 17:14:36 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "ft_printf.h"
 #include "process.h"
 
-void	get_nbr(long num, t_state_machine *machine)
+void	get_nbr(long num, t_sm *machine)
 {
 	if (num < 0)
 	{
@@ -29,7 +29,7 @@ void	get_nbr(long num, t_state_machine *machine)
 	add_to_buff((num % 10) + '0', machine);
 }
 
-void	decimal(t_state_machine *machine)
+void	decimal(t_sm *machine)
 {
 	get_nbr((long)va_arg(*(machine->ap), int), machine);
 }

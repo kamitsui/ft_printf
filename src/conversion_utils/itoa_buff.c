@@ -1,9 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   itoa_buff.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/09 14:41:49 by kamitsui          #+#    #+#             */
+/*   Updated: 2023/03/09 17:14:53 by kamitsui         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_printf.h"
 #include "process.h"
 
-static char	get_digit(unsigned long num, int base, t_state_machine *machine)
+static char	get_digit(unsigned long num, int base, t_sm *machine)
 {
 	num %= base;
 	if (base == 8 || base == 10 || num < 10)
@@ -33,8 +44,8 @@ static int	itoa_len(unsigned long num, long base)
 	return (len);
 }
 
-//IDEA change of name ... t_state_machine -> t_st_machine
-char	*itoa_buff(unsigned long num, char *str, int base, t_state_machine *machine)
+//IDEA change of name ... t_sm -> t_st_machine
+char	*itoa_buff(unsigned long long num, char *str, int base, t_sm *machine)
 {
 	int	len;
 

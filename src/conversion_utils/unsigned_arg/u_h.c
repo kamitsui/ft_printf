@@ -1,38 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hexadecimal.c                                      :+:      :+:    :+:   */
+/*   u_h.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/09 14:41:26 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/09 17:14:44 by kamitsui         ###   ########.fr       */
+/*   Created: 2023/03/09 18:01:46 by kamitsui          #+#    #+#             */
+/*   Updated: 2023/03/09 18:18:50 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include "libft.h"
+#include <stdarg.h>
 #include "ft_printf.h"
-#include "process.h"
-#include "conversion.h"
-#include "unsigned_arg.h"
 
-void	hexadecimal(t_sm *machine)
+unsigned long long	u_h(t_sm *machine)
 {
-	char				str[42];
-	unsigned long long	num;
-	int					base;
-	size_t				len;
-	size_t				i;
+	unsigned short	num;
 
-	base = 0x10;
-	num = u_va_arg(machine);
-	itoa_buff(num, str, base, machine);
-	len = ft_strlen(str);
-	i = 0;
-	while (i < len)
-	{
-		add_to_buff(str[i], machine);
-		i++;
-	}
+	num = (unsigned short)va_arg(*(machine->ap), int);
+	return ((unsigned long long)num);
 }

@@ -6,15 +6,14 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 11:44:02 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/04 16:24:08 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/09 17:28:03 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "process.h"
-//#include <stdio.h>// deleat this row !!!!  for debug :)
 
-static void	letter_error(char *input, t_state_machine *machine)
+static void	letter_error(char *input, t_sm *machine)
 {
 	int	size;
 	int	i;
@@ -36,11 +35,12 @@ static void	letter_error(char *input, t_state_machine *machine)
 	}
 }
 
-int	error(char *input, t_state_machine *machine)
+int	error(char *input, t_sm *machine)
 {
-//	printf("cur = '%c' | state = ERROR\n", *input);// for debug
 	letter_error(input, machine);
 	machine->state = LETTER;
 	machine->flag = 0x00;
 	return (1);
 }
+//#include <stdio.h>// deleat this row !!!!  for debug :)
+//	printf("cur = '%c' | state = ERROR\n", *input);// for debug

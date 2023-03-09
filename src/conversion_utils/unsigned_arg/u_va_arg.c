@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hexadecimal.c                                      :+:      :+:    :+:   */
+/*   u_va_arg.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/09 14:41:26 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/09 17:14:44 by kamitsui         ###   ########.fr       */
+/*   Created: 2023/03/09 14:44:14 by kamitsui          #+#    #+#             */
+/*   Updated: 2023/03/09 18:06:47 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include "libft.h"
+#include <stdarg.h>
 #include "ft_printf.h"
 #include "process.h"
 #include "conversion.h"
 #include "unsigned_arg.h"
 
-void	hexadecimal(t_sm *machine)
+unsigned long long	u_va_arg(t_sm *machine)
 {
-	char				str[42];
 	unsigned long long	num;
-	int					base;
-	size_t				len;
-	size_t				i;
+	int					i;
+	static t_f_u_va_arg	f_u_va_arg[5] = {u_hh, u_ll, u_h, u_l, u_int};
 
-	base = 0x10;
-	num = u_va_arg(machine);
-	itoa_buff(num, str, base, machine);
-	len = ft_strlen(str);
 	i = 0;
-	while (i < len)
+	while (i < NB_FLAG - 3)
 	{
-		add_to_buff(str[i], machine);
+		if ((machine->flag & (1 << i)) != FALSE)
+		{
+			num = f_u_va_arg[i](machine);
+			return (num);
+		}
 		i++;
 	}
+	num = (unsigned long long)f_u_va_arg[i](machine);
+	return (num);
 }
