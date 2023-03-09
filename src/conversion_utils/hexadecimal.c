@@ -1,6 +1,5 @@
 
 #include <stddef.h>
-#include <stdarg.h>
 #include "libft.h"
 #include "ft_printf.h"
 #include "process.h"
@@ -8,14 +7,14 @@
 
 void	hexadecimal(t_state_machine *machine)
 {
-	char			str[42];
-	unsigned int	num;
-	int				base;
-	size_t			len;
-	size_t			i;
+	char				str[42];
+	unsigned long long	num;
+	int					base;
+	size_t				len;
+	size_t				i;
 
 	base = 0x10;
-	num = va_arg(*(machine->ap), unsigned int);
+	num = u_va_arg(machine);
 	itoa_buff(num, str, base, machine);
 	len = ft_strlen(str);
 	i = 0;
