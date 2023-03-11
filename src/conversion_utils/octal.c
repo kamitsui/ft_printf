@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:41:56 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/09 17:15:15 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/11 17:10:53 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	octal(t_sm *machine)
 	while (i < len)
 	{
 		add_to_buff(str[i], machine);
+		if (machine->state == ERROR)
+			return ;
 		i++;
 	}
 }

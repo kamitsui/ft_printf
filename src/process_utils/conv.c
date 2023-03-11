@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 20:43:25 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/09 18:21:07 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/10 22:10:11 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	conv(char *input, t_sm *machine)
 		{
 			machine->flag |= (1 << i) << 8;
 			conversion(machine);
+			if (machine->state == ERROR)
+				return (-1);
 			machine->flag = 0;
 			machine->state = LETTER;
 			return (1);
@@ -35,7 +37,7 @@ int	conv(char *input, t_sm *machine)
 		i++;
 	}
 	machine->state = ERROR;
-	return (0);
+	return (-1);
 }
 //#include <stdio.h>// delete this !!!!!!!!!! witten for debug
 //	debug code

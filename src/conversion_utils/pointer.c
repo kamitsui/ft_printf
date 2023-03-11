@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:42:12 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/09 17:15:41 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/11 17:09:40 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 static void	add_prefix(t_sm *machine)
 {
 	add_to_buff('0', machine);
+	if (machine->state == ERROR)
+		return ;
 	add_to_buff('x', machine);
 }
 
@@ -37,10 +39,14 @@ void	pointer(t_sm *machine)
 	itoa_buff((unsigned long)p, str, base, machine);
 	len = ft_strlen(str);
 	add_prefix(machine);
+	if (machine->state == ERROR)
+		return ;
 	i = 0;
 	while (i < len)
 	{
 		add_to_buff(str[i], machine);
+		if (machine->state == ERROR)
+			return ;
 		i++;
 	}
 }

@@ -79,5 +79,12 @@ int	main(void)
 	ft_printf("\t%s\n", "42 tokyo");
 	printf("\t%s\n", (void *)0);
 	ft_printf("\t%s\n", (void *)0);
+//	conversion is not
+	printf("---- %%a ----\n");
+//	printf("%a\n", 42);//compile error
+	printf("\tDoes not compile\tprintf\n");
+	int r = ft_printf("%a\n", 42);//
+	if (r == -1)
+		ft_printf("\tERROR\tmismatch format\tft_printf\n");
 	return 0;
 }

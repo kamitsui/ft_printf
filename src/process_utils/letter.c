@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 19:53:40 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/09 18:27:33 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/10 22:04:13 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	letter(char *input, t_sm *machine)
 	else
 	{
 		add_to_buff(*input, machine);
+		if (machine->state == ERROR)
+			return (-1);
 	}
 	return (1);
 }
