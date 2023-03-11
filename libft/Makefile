@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/03/11 20:51:49 by kamitsui          #+#    #+#              #
+#    Updated: 2023/03/11 20:51:57 by kamitsui         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 # Directories
 SRC_DIR = src
 OBJ_DIR = obj
@@ -32,7 +44,9 @@ LIB = libft.a
 
 # Compiler
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+#CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
+#CFLAGS = -Wall -Werror -Wextra -fsanitize=address
 DFLAGS = -MMD -MP -MF $(@:$(OBJ_DIR)/%.o=$(DEP_DIR)/%.d)
 INC = -I$(INC_DIR)
 

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   argments_nomal.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/11 20:52:33 by kamitsui          #+#    #+#             */
+/*   Updated: 2023/03/11 20:52:39 by kamitsui         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include <limits.h>
 #include <stdlib.h>
@@ -86,5 +98,6 @@ int	main(void)
 	int r = ft_printf("%a\n", 42);//
 	if (r == -1)
 		ft_printf("\tERROR\tmismatch format\tft_printf\n");
+	system("leaks a.out");
 	return 0;
 }

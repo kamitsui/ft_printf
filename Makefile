@@ -6,7 +6,7 @@
 #    By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/09 14:39:52 by kamitsui          #+#    #+#              #
-#    Updated: 2023/03/09 18:11:42 by kamitsui         ###   ########.fr        #
+#    Updated: 2023/03/11 18:36:25 by kamitsui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,8 +62,10 @@ LIBFT = $(LIBFT_DIR)/libft.a
 vpath %.c $(SRC_DIR)
 
 # Compiler
-CC = clang
+CC = cc
+#CFLAGS = -Wall -Wextra -Werror
 CFLAGS = -Wall -Wextra -Werror -g
+#CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 DFLAGS = -MMD -MP -MF $(@:$(OBJ_DIR)/%.o=$(DEP_DIR)/%.d)
 IFLAGS = -I$(INC_DIR)
 #LFLAGS = -L$(LIBFT_DIR) -lft
