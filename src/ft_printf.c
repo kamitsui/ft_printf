@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 14:49:27 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/10 22:24:26 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/17 16:10:05 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,17 @@ int	ft_printf(char *input, ...)
 	va_start(ap, input);
 	initialize_machine(&machine, &ap);
 	process(input, &machine);
+	if (machine.state != ERROR)
+	{
+		machine.out = ft_strjoin_free(machine.out, machine.buffer);
+		if (machine.out == NULL)
+			return (-1);
+		machine.out_size = write(1, machine.out, machine.out_size);
+	}
+	free(machine.out);
+	va_end(ap);
 	if (machine.state == ERROR)
 		return (-1);
-	machine.out = ft_strjoin_free(machine.out, machine.buffer);
-	if (machine.out == NULL)
-		return (-1);
-	machine.out_size = write(1, machine.out, machine.out_size);
-	free(machine.out);
-	machine.out = NULL;
-	va_end(ap);
 	return (machine.out_size);
 }
 //#include <stdio.h>// written for debug.  don't forget delete !!!!!!
