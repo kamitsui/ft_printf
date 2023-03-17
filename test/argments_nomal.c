@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 20:52:33 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/17 17:44:28 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/17 20:06:25 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ int	main(void)
 	ft_printf("\t%d <- written by ft_printf('%%d\\n', 'asdfg')\tthis case undefine\n", "asdfg");
 	printf("---- argments shortage ----\n");
 	printf("\tDoes not compile\tprintf('%%d%%d%%d\\n', 4, 2)\n");
-	ft_printf("\t%d%d%d\n", 4, 2);
+	ft_printf("\t%d%d%d <- written by ft_printf('%%d%%d%%d', 4, 2)\tthis case undefine\n", 4, 2);
 	printf("---- no write ----\n");
 	r = printf("");
 	printf("\t%d = printf('')\n", r);

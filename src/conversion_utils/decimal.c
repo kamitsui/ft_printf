@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 20:15:55 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/17 18:47:40 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/17 20:02:37 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,23 @@ static void	get_nbr(long num, t_sm *machine)
 	add_to_buff((num % 10) + '0', machine);
 }
 
-#include <stdio.h>//warrrrrrrrinig
 void	decimal(t_sm *machine)
 {
-	//if (ft_strnequ(&(machine->ap), "", 1) == TRUE)
-	//if (*(machine->ap) == 0)
-	if ((machine->ap)[0] == 0)
-	{
-		printf("error\n");
-		machine->state = ERROR;
-		return ;
-	}
 	get_nbr((long)va_arg(*(machine->ap), int), machine);
 }
+//#include <stdio.h>//warrrrrrrrinig
+//void	decimal(t_sm *machine)
+//{
+//	long	num;
+//
+//	num = (long)va_arg(*(machine->ap), int);
+//	//if (ft_strnequ(&(machine->ap), "", 1) == TRUE)
+//	if (*(machine->ap) == 0)
+//	//if ((machine->ap)[0] == 0)
+//	{
+//		printf("error\n");
+//		machine->state = ERROR;
+//		return ;
+//	}
+//	get_nbr(num, machine);
+//}
