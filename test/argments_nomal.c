@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 20:52:33 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/17 17:00:39 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/11 20:52:39 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,35 +82,22 @@ int	main(void)
 	ft_printf("\t%llX,%llX,%llX,%llX,%llX,%llX\tft_printf\n", 0x0LL, 0xFFLL, (unsigned long long)INT_MAX, (unsigned long long)UINT_MAX, (unsigned long long)ULONG_MAX, ULLONG_MAX, ULLONG_MAX+1);
 	ft_printf("---- %%p ----\n");
 	char c='p';	char s[10]="123456789"; int i=42; char *h=ft_strnew(42);
-	printf("\t%p,%p,%p,asdf:%p,c:%p,s:%p,i:%p,h:%p,%lu:%p\tprintf\n", (char *)0, (char *)1, (char *)0xff, "asdf", &c, &s[0], &i, &h[0], ULONG_MAX, (char *)~0);
-	ft_printf("\t%p,%p,%p,asdf:%p,c:%p,s:%p,i:%p,h:%p,%lu:%p\tft_printf\n", (char *)0, (char *)1, (char *)0xff, "asdf", &c, &s[0], &i, &h[0], ULONG_MAX, (char *)~0);
+	printf("\t%p,%p,%p,asdf:%p,c:%p,s:%p,i:%p,h:%p,%lu:%p\tprintf\n", (void *)0, (void *)1, (void *)0xff, "asdf", &c, &s[0], &i, &h[0], ULONG_MAX, (void *)~0);
 	free(h);
+	ft_printf("\t%p,%p,%p,asdf:%p,c:%p,s:%p,i:%p,h:%p,%lu:%p\tft_printf\n", (void *)0, (void *)1, (void *)0xff, "asdf", &c, &s[0], &i, &h[0], ULONG_MAX, (void *)~0);
 	// %c test is char.c
 	printf("---- %%s ----\n");
 	printf("\t%s\n", "42 tokyo");
 	ft_printf("\t%s\n", "42 tokyo");
-	printf("\t%s\n", (char *)0);
-	ft_printf("\t%s\n", (char *)0);
+	printf("\t%s\n", (void *)0);
+	ft_printf("\t%s\n", (void *)0);
 //	conversion is not
-	printf("---- %%a ---- NG format\n");
+	printf("---- %%a ----\n");
 //	printf("%a\n", 42);//compile error
-	int r;
-	r = printf("\tDoes not compile\tprintf('%%a\\n', 42)");
-	printf("return:%d\n", r);
-	r = ft_printf("%a\n", 42);//
+	printf("\tDoes not compile\tprintf\n");
+	int r = ft_printf("%a\n", 42);//
 	if (r == -1)
-	{
-		ft_printf("\tERROR\tmismatch format\tft_printf('%%a\\n', 42)");
-		ft_printf("return:%d\n", r);
-	}
-	printf("----- mismatch type ---- \n");
-	printf("\tDose not compile\tprintf('%%d\\n', 'asdfg')\n");
-	ft_printf("\t%d\tundefined ft_printf('%%d\\n', 'asdfg')\n", "asdfg");
-	printf("---- no write ----\n");
-	r = printf("");
-	printf("\t%d = printf('')\n", r);
-	r = ft_printf("");
-	ft_printf("\t%d = ft_printf('')\n", r);
+		ft_printf("\tERROR\tmismatch format\tft_printf\n");
 	system("leaks a.out");
 	return 0;
 }
