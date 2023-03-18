@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 20:15:52 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/09 18:27:16 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/18 17:38:38 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,14 @@
 int	flag(char *input, t_sm *machine)
 {
 	static char	*str_flag[NB_FLAG] = {
-		FLAG_HH, FLAG_LL, FLAG_H, FLAG_L, FLAG_ZERO, FLAG_HASH, FLAG_SPACE};
+		FLAG_ZERO, FLAG_LEFT, FLAG_HASH, FLAG_SPACE, FLAG_PLUS};
 	int			size;
 	int			i;
 
-	size = 0;
+	size = 1;
 	i = 0;
 	while (i < NB_FLAG)
 	{
-		if (i < 2)
-			size = 2;
-		else
-			size = 1;
 		if (ft_strnequ(input, str_flag[i], size) == TRUE)
 		{
 			machine->flag |= (1 << i);
@@ -37,7 +33,7 @@ int	flag(char *input, t_sm *machine)
 		}
 		i++;
 	}
-	machine->state = CONV;
+	machine->state = FIELD;
 	return (0);
 }
 //Debug code
@@ -48,15 +44,13 @@ int	flag(char *input, t_sm *machine)
 //			free(flag_bin);
 //
 //Notes "process.h"
-//# define FLAG_HH	"hh"
-//# define FLAG_LL	"ll"
-//# define FLAG_H		"h"
-//# define FLAG_L		"l"
 //# define FLAG_ZERO	"0"
+//# define FLAG_LEFT	"-"
 //# define FLAG_HASH	"#"
 //# define FLAG_SPACE	" "
+//# define FLAG_PLUSE	"+"
 //
-//# define NB_FLAG	7
+//# define NB_FLAG	5
 //
 //# define TRUE	1
 //# define FALSE	0

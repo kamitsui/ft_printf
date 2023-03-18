@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 17:10:46 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/09 17:33:41 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/18 15:59:30 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ enum e_state
 {
 	LETTER,
 	FLAG,
-	CONV,
-	ERROR,
-	END
+	FIELD,
+	PREFIX,
+	TYPE,
+	ERROR
 };
 
 typedef struct s_sm

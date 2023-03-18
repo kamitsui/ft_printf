@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 15:19:22 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/10 22:17:31 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/18 15:57:37 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 void	process(char *input, t_sm *machine)
 {
-	static t_f_process	f_process[3] = {letter, flag, conv};
+	static t_f_process	f_process[5] = {letter, flag, field, prefix, type};
 	int					ret;
 
 	while (*input != '\0' && input != NULL && machine->state != ERROR)
