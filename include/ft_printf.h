@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 17:10:46 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/18 15:59:30 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/19 14:18:40 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ typedef struct s_sm
 	char			*out;
 	int				out_size;
 	int				flag;
+	int				width;
+	int				prec;
 }	t_sm;
 
 void	process(char *input, t_sm *machine);

@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:44:14 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/09 18:06:47 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/20 17:42:01 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 #include "ft_printf.h"
 #include "process.h"
 #include "conversion.h"
-#include "unsigned_arg.h"
+#include "va_arg.h"
+#include <stdio.h>//for debug
+#include "libft.h"//for debug
 
 unsigned long long	u_va_arg(t_sm *machine)
 {
@@ -22,10 +24,11 @@ unsigned long long	u_va_arg(t_sm *machine)
 	int					i;
 	static t_f_u_va_arg	f_u_va_arg[5] = {u_hh, u_ll, u_h, u_l, u_int};
 
+//	printf("%d:flag\n", machine->flag);
 	i = 0;
-	while (i < NB_FLAG - 3)
+	while (i < NB_PREFIX)
 	{
-		if ((machine->flag & (1 << i)) != FALSE)
+		if ((machine->flag & (1 << i << 8)) != FALSE)
 		{
 			num = f_u_va_arg[i](machine);
 			return (num);

@@ -1,41 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   octal.c                                            :+:      :+:    :+:   */
+/*   s_va_arg.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/09 14:41:56 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/20 20:00:34 by kamitsui         ###   ########.fr       */
+/*   Created: 2023/03/20 17:13:29 by kamitsui          #+#    #+#             */
+/*   Updated: 2023/03/20 17:42:26 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include "libft.h"
+
+#include <stdarg.h>
 #include "ft_printf.h"
 #include "process.h"
 #include "conversion.h"
 #include "va_arg.h"
+#include <stdio.h>//for debug
+#include "libft.h"//for debug
 
-void	octal(t_sm *machine)
+long long	s_va_arg(t_sm *machine)
 {
-	char				str[42];
-	unsigned long long	num;
-	int					base;
-	size_t				len;
-	size_t				i;
+	long long			num;
+	int					i;
+	int					bit_offset;
+	static t_f_s_va_arg	f_s_va_arg[5] = {s_hh, s_ll, s_h, s_l, s_int};
 
-	ft_bzero(str, 42);//42 is not better  >> xx_SIZE
-	base = 010;
-	num = u_va_arg(machine);
-	itoa_buff(num, str, base, machine);
-	len = ft_strlen(str);
+//	printf("%d:flag\n", machine->flag);//for debug
+	bit_offset = NB_FLAG + NB_FIELD + 1;
 	i = 0;
-	while (i < len)
+	while (i < NB_PREFIX)
 	{
-		add_to_buff(str[i], machine);
-		if (machine->state == ERROR)
-			return ;
+		if ((machine->flag & (1 << i << bit_offset)) != FALSE)
+		{
+			num = f_s_va_arg[i](machine);
+			return (num);
+		}
 		i++;
 	}
+	num = (long long)f_s_va_arg[i](machine);
+	return (num);
 }

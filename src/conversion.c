@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 16:33:23 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/09 17:39:22 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/20 13:30:38 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,13 @@ void	conversion(t_sm *machine)
 	static t_f_conversion	f_conversion[10] = {decimal, decimal, u_decimal,
 		octal, hexadecimal, hexadecimal, pointer, character, string, percent};
 	int						i;
+	int						bit_offset;
 
 	i = 0;
-	while (i < NB_CONV)
+	bit_offset = NB_FLAG + NB_FIELD + 1 + NB_PREFIX;
+	while (i < NB_TYPE)
 	{
-		if ((machine->flag & (1 << i) << 8))
+		if ((machine->flag & (1 << i) << bit_offset))
 			f_conversion[i](machine);
 		i++;
 	}

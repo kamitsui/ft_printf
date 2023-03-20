@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:42:12 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/11 17:09:40 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/20 20:01:28 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "ft_printf.h"
 #include "process.h"
 #include "conversion.h"
-#include "unsigned_arg.h"
+#include "va_arg.h"
 
 static void	add_prefix(t_sm *machine)
 {
@@ -34,6 +34,7 @@ void	pointer(t_sm *machine)
 	size_t			len;
 	size_t			i;
 
+	ft_bzero(str, 42);//42 is not better  >> xx_SIZE
 	base = 0x10;
 	p = va_arg(*(machine->ap), void *);
 	itoa_buff((unsigned long)p, str, base, machine);

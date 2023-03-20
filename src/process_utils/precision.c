@@ -1,41 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   octal.c                                            :+:      :+:    :+:   */
+/*   precision.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/09 14:41:56 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/20 20:00:34 by kamitsui         ###   ########.fr       */
+/*   Created: 2023/03/18 21:09:53 by kamitsui          #+#    #+#             */
+/*   Updated: 2023/03/19 16:00:29 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include "libft.h"
 #include "ft_printf.h"
 #include "process.h"
-#include "conversion.h"
-#include "va_arg.h"
 
-void	octal(t_sm *machine)
+int	precision(char *input, t_sm *machine)
 {
-	char				str[42];
-	unsigned long long	num;
-	int					base;
-	size_t				len;
-	size_t				i;
+	static char	*str_prec;
+	int			size;
 
-	ft_bzero(str, 42);//42 is not better  >> xx_SIZE
-	base = 010;
-	num = u_va_arg(machine);
-	itoa_buff(num, str, base, machine);
-	len = ft_strlen(str);
-	i = 0;
-	while (i < len)
+	str_prec = FIELD_PREC;
+	size = 0;
+	if (input[size] == *str_prec)
 	{
-		add_to_buff(str[i], machine);
-		if (machine->state == ERROR)
-			return ;
-		i++;
+		machine->flag |= BIT_PREC;
+		size++;
+		size = get_field_nbr(input, machine);
+		if (size == -1)
+			return (size);
 	}
+	return (size);
 }

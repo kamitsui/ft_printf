@@ -1,41 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   octal.c                                            :+:      :+:    :+:   */
+/*   prefix.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/09 14:41:56 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/20 20:00:34 by kamitsui         ###   ########.fr       */
+/*   Created: 2023/03/18 20:40:43 by kamitsui          #+#    #+#             */
+/*   Updated: 2023/03/18 20:40:52 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <stdlib.h>
 #include "libft.h"
 #include "ft_printf.h"
 #include "process.h"
-#include "conversion.h"
-#include "va_arg.h"
 
-void	octal(t_sm *machine)
+int	prefix(char *input, t_sm *machine)
 {
-	char				str[42];
-	unsigned long long	num;
-	int					base;
-	size_t				len;
-	size_t				i;
+	static char	*str_prefix[NB_PREFIX] = {
+		PREFIX_HH, PREFIX_LL, PREFIX_H, PREFIX_L};
+	int			size;
+	int			i;
 
-	ft_bzero(str, 42);//42 is not better  >> xx_SIZE
-	base = 010;
-	num = u_va_arg(machine);
-	itoa_buff(num, str, base, machine);
-	len = ft_strlen(str);
+	size = 0;
 	i = 0;
-	while (i < len)
+	while (i < NB_PREFIX)
 	{
-		add_to_buff(str[i], machine);
-		if (machine->state == ERROR)
-			return ;
+		if (i < 2)
+			size = 2;
+		else
+			size = 1;
+		if (ft_strnequ(input, str_prefix[i], size) == TRUE)
+		{
+			machine->flag |= (1 << i) << 8;
+			return (size);
+		}
 		i++;
 	}
+	machine->state = TYPE;
+	return (0);
 }

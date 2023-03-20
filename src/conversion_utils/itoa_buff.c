@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:41:49 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/09 17:14:53 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/20 19:00:14 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static char	get_digit(unsigned long num, int base, t_sm *machine)
 	else
 	{
 		num -= 10;
-		if ((machine->flag & (X_CONV | P_CONV)) != FALSE)
+		if ((machine->flag & (BIT_X | BIT_P)) != FALSE)
 			return (num + 'a');
 		else
 			return (num + 'A');
@@ -50,7 +50,7 @@ char	*itoa_buff(unsigned long long num, char *str, int base, t_sm *machine)
 	int	len;
 
 	len = itoa_len(num, base);
-	str[len] = '\0';
+//	str[len] = '\0';
 	while (len > 0)
 	{
 		str[len - 1] = get_digit(num, base, machine);

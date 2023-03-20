@@ -6,7 +6,7 @@
 #    By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/09 14:39:52 by kamitsui          #+#    #+#              #
-#    Updated: 2023/03/17 15:30:47 by kamitsui         ###   ########.fr        #
+#    Updated: 2023/03/20 17:34:53 by kamitsui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@
 SRC_DIR = src \
 		  src/process_utils \
 		  src/conversion_utils \
-		  src/conversion_utils/unsigned_arg
+		  src/conversion_utils/unsigned_arg \
+		  src/conversion_utils/signed_arg
 OBJ_DIR = obj
 INC_DIR = include
 DEP_DIR = .dep
@@ -29,7 +30,12 @@ SRCS = \
 	   \
 	   letter.c \
 	   flag.c \
-	   conv.c \
+	   field.c \
+	   width.c \
+	   precision.c \
+	   get_field_nbr.c \
+	   prefix.c \
+	   type.c \
 	   error.c \
 	   add_to_buff.c \
 	   \
@@ -48,7 +54,14 @@ SRCS = \
 	   u_ll.c \
 	   u_h.c \
 	   u_l.c \
-	   u_int.c
+	   u_int.c \
+	   \
+	   s_va_arg.c \
+	   s_hh.c \
+	   s_ll.c \
+	   s_h.c \
+	   s_l.c \
+	   s_int.c
 
 # Object files and dependency files
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))

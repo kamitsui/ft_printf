@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 20:15:52 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/18 17:38:38 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/19 13:33:04 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 int	flag(char *input, t_sm *machine)
 {
 	static char	*str_flag[NB_FLAG] = {
-		FLAG_ZERO, FLAG_LEFT, FLAG_HASH, FLAG_SPACE, FLAG_PLUS};
+		FLAG_ZERO, FLAG_LEFT, FLAG_HASH, FLAG_SPACE, FLAG_PLUSE};
 	int			size;
 	int			i;
 

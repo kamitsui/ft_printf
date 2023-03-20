@@ -6,38 +6,100 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 20:15:55 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/17 20:02:37 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/20 19:56:59 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include "ft_printf.h"
 #include "process.h"
+#include "conversion.h"
+#include "va_arg.h"
 #include "libft.h"
 
-static void	get_nbr(long num, t_sm *machine)
+static	size_t	get_digit(long long num)
 {
+	size_t	len;
+
+	len = 1;
 	if (num < 0)
 	{
-		add_to_buff('-', machine);
-		if (machine->state == ERROR)
-			return ;
-		if (num < -9)
-			get_nbr(num / (-10), machine);
-		add_to_buff(-1 * (num % 10) + '0', machine);
-		return ;
+		len++;
+		if (num > 9)
+		{
+			len++;
+			num = -1 * (num / 10);
+		}
+		else
+			num *= -1;
 	}
-	if (num > 9)
-		get_nbr(num / 10, machine);
-	if (machine->state == ERROR)
-		return ;
-	add_to_buff((num % 10) + '0', machine);
+	while (num / 10 > 0)
+	{
+		len++;
+		num /= 10;
+	}
+	return (len);
 }
 
 void	decimal(t_sm *machine)
 {
-	get_nbr((long)va_arg(*(machine->ap), int), machine);
+	char		str[33];
+	long long	num;
+	long long	tmp_num;
+	size_t		len;
+	size_t		i;
+
+	num = s_va_arg(machine);
+	tmp_num = num;
+	len = get_digit(num);
+	if (num < 0)
+	{
+		str[0] = '-';
+		str[len - 1] = -1 * (num % 10) + '0';
+		tmp_num = -1 * (num / 10);
+		if (tmp_num > 0)
+			itoa_buff(tmp_num, &str[num < 0], 10, machine);
+	}
+	else
+		itoa_buff(num, str, 10, machine);
+	i = 0;
+	while (i < len)
+	{
+		add_to_buff(str[i], machine);
+		if (machine->state == ERROR)
+			return ;
+		i++;
+	}
 }
+// debug code
+//#include <stdio.h>// for debug
+//	printf("|num:%d|", (int)num);// for debug
+//	printf("|len:%d|", (int)len);// for debug
+//	printf("|str:%s|", str);// for debug
+//mandatory
+//static void	get_nbr(long num, t_sm *machine)
+//{
+//	if (num < 0)
+//	{
+//		add_to_buff('-', machine);
+//		if (machine->state == ERROR)
+//			return ;
+//		if (num < -9)
+//			get_nbr(num / (-10), machine);
+//		add_to_buff(-1 * (num % 10) + '0', machine);
+//		return ;
+//	}
+//	if (num > 9)
+//		get_nbr(num / 10, machine);
+//	if (machine->state == ERROR)
+//		return ;
+//	add_to_buff((num % 10) + '0', machine);
+//}
+//
+//void	decimal(t_sm *machine)
+//{
+//	get_nbr((long)va_arg(*(machine->ap), int), machine);
+//}
 //#include <stdio.h>//warrrrrrrrinig
 //void	decimal(t_sm *machine)
 //{
