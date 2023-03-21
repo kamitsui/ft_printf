@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 20:43:25 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/20 13:57:55 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/21 13:49:07 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	type(char *input, t_sm *machine)
 			if (machine->state == ERROR)
 				return (-1);
 			machine->flag = 0;
+			machine->width = 0;
+			machine->prec = 0;
 			machine->state = LETTER;
 			return (1);
 		}

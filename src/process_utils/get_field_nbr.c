@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 21:22:52 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/20 10:20:47 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/21 20:07:03 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "libft.h"
 #include <limits.h>
 
-static int	set_value(char *input, t_sm *machine)
+int	get_field_nbr(char *input, t_sm *machine)
 {
 	int	size;
 	int	num;
@@ -24,7 +24,12 @@ static int	set_value(char *input, t_sm *machine)
 	num = 0;
 	while (ft_isdigit(input[size]))
 	{
-		if ((num > INT_MAX / 10) || (input[size] - '0' > INT_MAX % 10))
+		if (num > INT_MAX / 10)
+		{
+			machine->state = ERROR;
+			return (-1);
+		}
+		if ((num == INT_MAX / 10) && (input[size] - '0' >= INT_MAX % 10))
 		{
 			machine->state = ERROR;
 			return (-1);
@@ -40,18 +45,18 @@ static int	set_value(char *input, t_sm *machine)
 	return (size);
 }
 
-int	get_field_nbr(char *input, t_sm *machine)
-{
-	int	num;
-	int	size;
-
-	num = 0;
-	size = 0;
-	if (*input == '0')
-	{
-		machine->state = ERROR;
-		return (-1);
-	}
-	size = set_value(input, machine);
-	return (size);
-}
+//int	get_field_nbr(char *input, t_sm *machine)
+//{
+//	int	num;
+//	int	size;
+//
+//	num = 0;
+//	size = 0;
+//	if (*input == '0')
+//	{
+//		machine->state = ERROR;
+//		return (-1);
+//	}
+//	size = set_value(input, machine);
+//	return (size);
+//}

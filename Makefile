@@ -6,7 +6,7 @@
 #    By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/09 14:39:52 by kamitsui          #+#    #+#              #
-#    Updated: 2023/03/20 17:34:53 by kamitsui         ###   ########.fr        #
+#    Updated: 2023/03/21 16:43:27 by kamitsui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,9 @@ SRCS = \
 	   string.c \
 	   percent.c \
 	   itoa_buff.c \
+	   formalize.c \
+	   adjust.c \
+	   adjust_field.c \
 	   \
 	   u_va_arg.c \
 	   u_hh.c \

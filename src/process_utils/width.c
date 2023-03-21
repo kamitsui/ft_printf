@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 20:47:49 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/19 13:39:54 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/21 12:57:00 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ int	width(char *input, t_sm *machine)
 
 	size = 0;
 	if (ft_isdigit(*input) == TRUE)
+	{
+		machine->flag |= BIT_WIDTH;
 		size = get_field_nbr(input, machine);
+	}
 	return (size);
 }

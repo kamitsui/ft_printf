@@ -6,12 +6,13 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 21:09:53 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/19 16:00:29 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/21 13:17:35 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "process.h"
+#include "libft.h"
 
 int	precision(char *input, t_sm *machine)
 {
@@ -24,9 +25,11 @@ int	precision(char *input, t_sm *machine)
 	{
 		machine->flag |= BIT_PREC;
 		size++;
-		size = get_field_nbr(input, machine);
-		if (size == -1)
-			return (size);
+		if (ft_isdigit(input[size]) != TRUE)
+				return (size);
+		size += get_field_nbr(&input[size], machine);
 	}
 	return (size);
 }
+//		if (size == -1)
+//			return (size);

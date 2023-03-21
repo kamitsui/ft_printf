@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 17:39:51 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/19 13:35:27 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/21 13:24:26 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ int	field(char *input, t_sm *machine)
 	i = 0;
 	while (i < NB_FIELD)
 	{
-		size += f_field[i](input, machine);
+		size += f_field[i](&input[size], machine);
+		if (machine->state == ERROR)
+			return (-1);
 		i++;
 	}
 	machine->state = PREFIX;

@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 14:49:27 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/17 16:10:05 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/20 20:48:00 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,16 @@
 
 static void	initialize_machine(t_sm *machine, va_list *ap)
 {
-	machine->ap = ap;
 	machine->state = LETTER;
-	machine->len = 0;
-	machine->flag = 0x0;
+	machine->ap = ap;
 	ft_bzero((void *)&machine->buffer, (size_t)4096);
 	machine->out = ft_strnew(1);
 	ft_bzero((void *)machine->out, 1);
 	machine->out_size = 0;
+	machine->len = 0;
+	machine->flag = 0x0;
+	machine->width = 0;
+	machine->prec = 0;
 }
 
 int	ft_printf(char *input, ...)

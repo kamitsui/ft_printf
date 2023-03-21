@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   unsigned_arg.h                                     :+:      :+:    :+:   */
+/*   adjust.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/09 16:18:08 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/09 18:06:07 by kamitsui         ###   ########.fr       */
+/*   Created: 2023/03/21 15:29:09 by kamitsui          #+#    #+#             */
+/*   Updated: 2023/03/21 16:47:00 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UNSIGNED_ARG_H
-# define UNSIGNED_ARG_H
+#include "ft_printf.h"
+#include "process.h"
+#include "conversion.h"
 
-typedef unsigned long long	(*t_f_u_va_arg)(t_sm *);
-unsigned long long	u_hh(t_sm *machine);
-unsigned long long	u_ll(t_sm *machine);
-unsigned long long	u_h(t_sm *machine);
-unsigned long long	u_l(t_sm *machine);
-unsigned long long	u_int(t_sm *machine);
-unsigned long long	u_va_arg(t_sm *machine);
-
-#endif
+void	adjust(char *str, t_sm *machine)
+{
+	if ((machine->flag & (BIT_WIDTH | BIT_PREC)) != FALSE)
+		adjust_field(str, machine);
+//	else if ((machine->flag & (BIT_SPACE | BIT_PLUSE)) != FALSE)
+//		adjust_sign(str, machine);
+//	else
+//		adjust_base(str, machine);
+}
