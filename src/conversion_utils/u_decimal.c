@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:44:02 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/20 18:59:57 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/21 20:46:14 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,22 @@ void	u_decimal(t_sm *machine)
 	char				str[42];
 	unsigned long long	num;
 	int					base;
-	size_t				len;
-	size_t				i;
 
 	ft_bzero(str, 42);//42 is not better  >> xx_SIZE
 	base = 10;
 	num = u_va_arg(machine);
 	itoa_buff(num, str, base, machine);
-	len = ft_strlen(str);
-	i = 0;
-	while (i < len)
-	{
-		add_to_buff(str[i], machine);
-		if (machine->state == ERROR)
-			return ;
-		i++;
-	}
+	formalize(str, machine);
 }
+//this code moved to formalize.c
+//	size_t				len;
+//	size_t				i;
+//	len = ft_strlen(str);
+//	i = 0;
+//	while (i < len)
+//	{
+//		add_to_buff(str[i], machine);
+//		if (machine->state == ERROR)
+//			return ;
+//		i++;
+//	}

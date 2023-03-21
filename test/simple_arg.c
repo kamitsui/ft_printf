@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 16:45:45 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/21 20:10:19 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/21 21:58:57 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,8 @@
 int	main(void)
 {
 	int	r;
-	r = ft_printf("%21474836410d", 12345);
-	ft_printf("\n|%d|\t\t%%21474836410d\twidth = INT_MAX + 1\t\terror case\tft_printf\n", r);
-	r = ft_printf("%2147483648d", 12345);
-	ft_printf("\n|%d|\t\t%%2147483648d\twidth = INT_MAX + 1\t\terror case\tft_printf\n", r);
-	r = ft_printf("%2147483647d", 12345);
-	ft_printf("\n|%d|\t\t%%2147483647d\twidth = INT_MAX\t\terror case\tft_printf\n", r);
+	r = ft_printf("%1048576p", (void *)0x42);
+	ft_printf("\n|%d|\t\t%%1048576p\twidth = 1MB\t\terror case\tft_printf\n", r);
 	//ft_printf("%llu\tllu\n\n", 42);
 	//ft_printf("%lu\tlu\n\n", 42);
 //	------- ok case --------
@@ -41,6 +37,16 @@ int	main(void)
 //	ft_printf("\n|%d|\t\t%%8193d\twidth = INT_MAX\t\terror case\tft_printf\n", r);
 //	r = ft_printf("%1048576d", 12345);
 //	ft_printf("\n|%d|\t\t%%1048576d\twidth = 1MB\t\terror case\tft_printf\n", r);
+//	r = ft_printf("%1048576s", "12345");
+//	ft_printf("\n|%d|\t\t%%1048576s\twidth = 1MB\t\terror case\tft_printf\n", r);
+//	r = ft_printf("%1048576c", 'c');
+//	ft_printf("\n|%d|\t\t%%1048576c\twidth = 1MB\t\terror case\tft_printf\n", r);
+//	ft_printf("%10d\n", -42);
+//	ft_printf("%10.8d\n", -42);
+//	ft_printf("%10u\n", 42);
+//	ft_printf("%10.8u\n", 42);
+//	printf("%10%\n");
+//	ft_printf("%10%\n");
 //	------- long time case --------
 //	r = ft_printf("%524288000d", 12345);
 //	ft_printf("\n|%d|\t\t%%524288000d\twidth = 500MB\t\terror case\tft_printf\n", r);
@@ -53,5 +59,12 @@ int	main(void)
 //	r = ft_printf("%2147483646d", 12345);
 //	ft_printf("\n|%d|\t\t%%2147483646d\twidth = INT_MAX - 1\t\terror case\tft_printf\n", r);
 //	------- error case --------
+//	int	r;
+//	r = ft_printf("%21474836410d", 12345);
+//	ft_printf("\n|%d|\t\t%%21474836410d\twidth = INT_MAX + 1\t\terror case\tft_printf\n", r);
+//	r = ft_printf("%2147483648d", 12345);
+//	ft_printf("\n|%d|\t\t%%2147483648d\twidth = INT_MAX + 1\t\terror case\tft_printf\n", r);
+//	r = ft_printf("%2147483647d", 12345);
+//	ft_printf("\n|%d|\t\t%%2147483647d\twidth = INT_MAX\t\terror case\tft_printf\n", r);
 	return (0);
 }

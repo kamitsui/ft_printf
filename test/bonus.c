@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 20:18:43 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/21 20:25:45 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/21 22:02:35 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,16 @@
 int	main(void)
 {
 	printf("\n---- width > len ----\n");
-	printf("|%10d|\t%%10d\targ = 12345\tprintf\tok\n", 12345);
+	printf("|%10d|\t%%10d\targ = 12345\tprintf\t\tok\n", 12345);
 	ft_printf("|%10d|\t%%10d\targ = 12345\tft_printf\tok\n", 12345);
-	printf("|%10.8d|\t%%10.8d\targ = 12345\tprintf\tok\n", 12345);
+	printf("|%10.8d|\t%%10.8d\targ = 12345\tprintf\t\tok\n", 12345);
 	ft_printf("|%10.8d|\t%%10.8d\targ = 12345\tft_printf\tok\n", 12345);
-	printf("|%10s|\t%%10s\targ = '12345'\n", "12345");
-	printf("|%10s|\t%%10s\targ = '12345'\n", "12345");
+	printf("|%10.8u|\t%%10.8u\targ = 12345\tprintf\t\tok\n", 12345U);
+	ft_printf("|%10.8u|\t%%10.8u\targ = 12345\tft_printf\tok\n", 12345U);
+	printf("|%10s|\t%%10s\targ = '12345'\tprintf\t\tok\n", "12345");
+	ft_printf("|%10s|\t%%10s\targ = '12345'\tft_printf\tok\n", "12345");
+	printf("|%10s|\t%%10s\targ = (void *)0\tprintf\t\tok\n", (void *)0);
+	ft_printf("|%10s|\t%%10s\targ = (void *)0\tft_printf\tok\n", (void *)0);
 	printf("|%-10d|\t%%-10d\targ = -12345\tprintf\n", -12345);
 	//ft_printf("|%-10d|\t%%-10d\targ = -12345\tft_printf\n", -12345);
 	printf("|%-10s|\t%%-10s\targ = '-12345'\n", "-12345");
@@ -29,29 +33,35 @@ int	main(void)
 	//printf("|%010s|\t%%010s\targ = '12345'\n", "12345");//does not compile
 	//printf("|%#10d|\t%%#10d\targ = 12345\n", 12345);//does not compile
 	printf("\n---- width min(0), max(INT_MAX) ----\n");
-	printf("|%00d|\t\t%%00d\targ = 12345\tprintf\tok\n", 12345);
+	printf("|%00d|\t\t%%00d\targ = 12345\tprintf\t\tok\n", 12345);
 	ft_printf("|%00d|\t\t%%00d\targ = 12345\tft_printf\tok\n", 12345);
 	printf("|%+0d|\t%%+0d\targ = 12345\n", 12345);
-	printf("NG\t\t%%0p\terror:does not compile\n");
-	printf("NG\t\t%%0c\terror:does not compile\n");
-	printf("NG\t\t%%0s\terror:does not compile\n");
+	printf("error\t\t%%0p\terror:does not compile\n");
+	printf("error\t\t%%0c\terror:does not compile\n");
+	printf("error\t\t%%0s\terror:does not compile\n");
 	int r;
 	r = printf("%2147483647d\n", 12345);
-	printf("|%d|\t\t%%2147483647d\twidth = INT_MAX\t\terror case\tprintf\tok\n", r);
+	printf("|%d|\t\t%%2147483647d\twidth = INT_MAX\t\terror case\tprintf\t\tok\n", r);
 	r = ft_printf("%2147483647d\n", 12345);
 	ft_printf("|%d|\t\t%%2147483647d\twidth = INT_MAX\t\terror case\tft_printf\tok\n", r);
 	r = printf("%2147483647p\n", (void *)0x42);
-	printf("|%d|\t\t%%2147483647p\twidth = INT_MAX\t\terror case\n", r);
+	printf("|%d|\t\t%%2147483647p\twidth = INT_MAX\t\terror case\tprintf\t\tok\n", r);
+	r = ft_printf("%2147483647p\n", (void *)0x42);
+	ft_printf("|%d|\t\t%%2147483647p\twidth = INT_MAX\t\terror case\tft_printf\tok\n", r);
 	r = printf("%2147483647c\n", 'c');
-	printf("|%d|\t\t%%2147483647c\twidth = INT_MAX\t\terror case\n", r);
+	printf("|%d|\t\t%%2147483647c\twidth = INT_MAX\t\terror case\tprintf\t\tok\n", r);
+	r = ft_printf("%2147483647c\n", 'c');
+	ft_printf("|%d|\t\t%%2147483647c\twidth = INT_MAX\t\terror case\tft_printf\tok\n", r);
 	r = printf("%2147483647s\n", "12345");
-	printf("|%d|\t\t%%2147483647s\twidth = INT_MAX\t\terror case\n", r);
-	printf("OK\t\t%%2147483646d\twidth = INT_MAX - 1\tvery long output\n");
-	printf("OK\t\t%%2147483646p\twidth = INT_MAX - 1\tvery long output\n");
-	printf("OK\t\t%%2147483646c\twidth = INT_MAX - 1\tvery long output\n");
-	printf("OK\t\t%%2147483646s\twidth = INT_MAX - 1\tvery long output\n");
+	printf("|%d|\t\t%%2147483647s\twidth = INT_MAX\t\terror case\tprintf\t\tok\n", r);
+	r = ft_printf("%2147483647s\n", "12345");
+	ft_printf("|%d|\t\t%%2147483647s\twidth = INT_MAX\t\terror case\tft_printf\tok\n", r);
+	printf("slow behavior\t\t%%2147483646d\twidth = INT_MAX - 1\tprintf & ft_printf(maybe. checked than 1MB)\n");
+	printf("slow behavior\t\t%%2147483646p\twidth = INT_MAX - 1\tprintf & ft_printf(maybe. checked than 1MB)\n");
+	printf("slow behavior\t\t%%2147483646c\twidth = INT_MAX - 1\tprintf & ft_printf(maybe. checked than 1MB)\n");
+	printf("slow behavior\t\t%%2147483646s\twidth = INT_MAX - 1\tprintf & ft_printf(maybe. checked than 1MB)\n");
 	printf("\n---- precision min(0), max(INT_MAX) ----\n");
-	printf("|%.0d|\t%%.0d\targ = 12345\tprintf\tok\n", 12345);
+	printf("|%.0d|\t%%.0d\targ = 12345\tprintf\t\tok\n", 12345);
 	ft_printf("|%.0d|\t%%.0d\targ = 12345\tft_printf\tok\n", 12345);
 	printf("|%.0s|\t%%.0s\targ = '12345'\n", "12345");
 	printf("\n---- base ----\n");
@@ -67,14 +77,16 @@ int	main(void)
 	//printf("|%#10u|\t%%10u\targ = 99999U\n", 99999U);//does not compile
 	//printf("|%#10s|\t%%#10s\targ = '42tokyo'\n", "42tokyo");//does not compile
 	printf("\n---- width <= len ----\n");
-	printf("|%3d|\t%%3d\targ = 12345\tprintf\tok\n", 12345);//ok
+	printf("|%3d|\t%%3d\targ = 12345\tprintf\t\tok\n", 12345);//ok
 	ft_printf("|%3d|\t%%3d\targ = 12345\tft_printf\tok\n", 12345);//ok
 	printf("|%3s|\t%%3s\targ = '12345'\n", "12345");
 	printf("\n---- precision >  len ----\n");
-	printf("|%.10d|\t%%.10d\targ = 12345\tprintf\tok\n", 12345);
+	printf("|%.10d|\t%%.10d\targ = 12345\tprintf\t\tok\n", 12345);
 	ft_printf("|%.10d|\t%%.10d\targ = 12345\tft_printf\tok\n", 12345);
-	printf("|%.10i|\t%%.10i\targ = 12345\n", 12345);
-	printf("|%.10u|\t%%.10u\targ = 12345U\n", 12345U);
+	printf("|%.10i|\t%%.10i\targ = 12345\tprintf\t\tok\n", 12345);
+	ft_printf("|%.10i|\t%%.10i\targ = 12345\tft_printf\tok\n", 12345);
+	printf("|%.10u|\t%%.10u\targ = 12345U\tprintf\t\tok\n", 12345U);
+	ft_printf("|%.10u|\t%%.10u\targ = 12345U\tft_printf\tok\n", 12345U);
 	printf("|%.10o|\t%%.10o\targ = 012345\n", 012345);
 	printf("|%.10x|\t%%.10x\targ = 0x12345\n", 0x12345);
 	printf("|%.10X|\t%%.10X\targ = 0X12345\n", 0X12345);
@@ -82,7 +94,7 @@ int	main(void)
 	//printf("|%.10c|\t\t%%.10c\targ = 'K'\n", 'K');//does not compile
 	printf("|%.10s|\t\t%%.10s\targ = '12345'\n", "12345");
 	printf("\n---- precision <= len ----\n");
-	printf("|%.3d|\t%%.3d\targ = 12345\tprintf\tok\n", 12345);
+	printf("|%.3d|\t%%.3d\targ = 12345\tprintf\t\tok\n", 12345);
 	ft_printf("|%.3d|\t%%.3d\targ = 12345\tft_printf\tok\n", 12345);
 	printf("|%.3s|\t%%.3s\targ = '12345'\n", "12345");
 	printf("\n---- mix ----\n");
@@ -133,7 +145,6 @@ int	main(void)
 	//printf("%+2s\n", "Tokyo");//does not compile
 	printf("\n");
 
-	printf("%2u\n", 42U);
 	printf("% 10d\n", 42);
 	printf("% 10d\n", -42);
 	printf("% 10.5d\t%% 10.5d\n", -42);

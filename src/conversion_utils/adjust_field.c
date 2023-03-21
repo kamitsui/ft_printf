@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 16:34:14 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/21 17:14:41 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/21 20:39:15 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,15 +82,16 @@ void	adjust_field(char *str, t_sm *machine)
 	int	len;
 
 	len = (int)ft_strlen(str);
-	printf("%d:width\n", machine->width);// for debug
-	printf("%d:precision\n", machine->prec);// for debug
-	printf("%d:len\n", len);// for debug
-	printf("%s:str\n", str);// for debug
-	char *flag_bin = (char *)ft_itoa_binary(machine->flag);// for debug
-	printf("%s:flag_bin\t%#x:flag\n", flag_bin, machine->flag);// for debug
-	free(flag_bin);// for debug
 	if ((machine->flag & BIT_PREC) != FALSE)
 		a_f_width_prec(str, machine);
 	else
 		a_f_width(str, machine);
 }
+//debug code
+//	printf("%d:width\n", machine->width);// for debug
+//	printf("%d:precision\n", machine->prec);// for debug
+//	printf("%d:len\n", len);// for debug
+//	printf("%s:str\n", str);// for debug
+//	char *flag_bin = (char *)ft_itoa_binary(machine->flag);// for debug
+//	printf("%s:flag_bin\t%#x:flag\n", flag_bin, machine->flag);// for debug
+//	free(flag_bin);// for debug

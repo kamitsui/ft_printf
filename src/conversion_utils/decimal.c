@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 20:15:55 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/21 16:05:27 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/21 21:34:30 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	decimal(t_sm *machine)
 	long long	num;
 	long long	tmp_num;
 	size_t		len;
-//	size_t		i;
 
 	ft_bzero(str, 42);
 	num = s_va_arg(machine);
@@ -64,6 +63,14 @@ void	decimal(t_sm *machine)
 	else
 		itoa_buff(num, str, 10, machine);
 	formalize(str, machine);
+}
+// debug code
+//#include <stdio.h>// for debug
+//	printf("|num:%d|", (int)num);// for debug
+//	printf("|len:%d|", (int)len);// for debug
+//	printf("|str:%s|", str);// for debug
+//this code moved to formalize.c
+//	size_t		i;
 //	i = 0;
 //	while (i < len)
 //	{
@@ -72,12 +79,6 @@ void	decimal(t_sm *machine)
 //			return ;
 //		i++;
 //	}
-}
-// debug code
-//#include <stdio.h>// for debug
-//	printf("|num:%d|", (int)num);// for debug
-//	printf("|len:%d|", (int)len);// for debug
-//	printf("|str:%s|", str);// for debug
 //mandatory
 //static void	get_nbr(long num, t_sm *machine)
 //{

@@ -6,14 +6,22 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:42:03 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/09 17:47:09 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/21 21:18:52 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "process.h"
+#include "conversion.h"
+#include "libft.h"
 
 void	percent(t_sm *machine)
 {
-	add_to_buff('%', machine);
+	char	str[2];
+
+	ft_bzero(str, 2);
+	str[0] = '%';
+	formalize(str, machine);
 }
+//this code moved to formalize.c
+//	add_to_buff('%', machine);
