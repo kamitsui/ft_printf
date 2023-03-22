@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 20:18:43 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/22 11:41:54 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/22 17:15:41 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,10 +129,24 @@ int	main(void)
 	//printf("%+ 10d\t%%+ \n", 42);//does not compile
 	//printf("% +10d\t%% +\n", 42);//does not compile
 	printf("\n---- ' ' ----\n");
-	printf("%2d\t%%2d\n", 42);
-	printf("% 2d\t%% 2d\n", 42);
-	printf("%2i\t%%2i\n", 42);
-	printf("% 2i\t%% 2i\n", 42);
+	printf("|% d|\t%% d\tprintf\t\tok\n", 0);
+	ft_printf("|% d|\t%% d\tft_printf\tok\n", 0);
+	printf("|% 2d|\t%% 2d\tprintf\t\tok\n", 0);
+	ft_printf("|% 2d|\t%% 2d\tft_printf\tok\n", 0);
+	printf("|%2d|\t%%2d\tprintf\t\tok\n", 42);
+	ft_printf("|%2d|\t%%2d\tft_printf\tok\n", 42);
+	printf("|% 2d|\t%% 2d\tprintf\t\tok\n", 42);
+	ft_printf("|% 2d|\t%% 2d\tft_printf\tok\n", 42);
+	printf("|%2i|\t%%2i\tprintf\t\tok\n", 42);
+	ft_printf("|%2i|\t%%2i\tft_printf\tok\n", 42);
+	printf("|% 2i|\t%% 2i\tprintf\t\tok\n", 42);
+	ft_printf("|% 2i|\t%% 2i\tft_printf\tok\n", 42);
+	printf("|% 10d|\t%% 10d\tprintf\t\tok\n", 42);
+	ft_printf("|% 10d|\t%% 10d\tft_printf\tok\n", 42);
+	printf("|% 10d|\t%% 10d\tprintf\t\tok\n", -42);
+	ft_printf("|% 10d|\t%% 10d\tft_printf\tok\n", -42);
+	printf("|% 10.5d|\t%% 10.5d\tprintf\t\tok\n", -42);
+	ft_printf("|% 10.5d|\t%% 10.5d\tft_printf\tok\n", -42);
 	//printf("% 2o\n", 042);//does not compile
 	//printf("% 2u\n", 42U);//does not compile
 	//printf("% 2x\t%% 2x\n", 0x42);//does not compile
@@ -141,10 +155,18 @@ int	main(void)
 	//printf("% 2c\n", 'K');//does not compile
 	//printf("% 2s\n", "Tokyo");//does not compile
 	printf("\n---- + ----\n");
-	printf("%2d\t%%2d\n", 42);
-	printf("%+2d\t%%+2d\n", 42);
-	printf("%2i\t%%2i\n", 42);
-	printf("%+2i\t%%+2i\n", 42);
+	printf("|%+d|\t%%+d\tprintf\t\tok\n", 0);
+	ft_printf("|%+d|\t%%+d\tft_printf\tok\n", 0);
+	printf("|%+2d|\t%%+2d\tprintf\t\tok\n", 0);
+	ft_printf("|%+2d|\t%%+2d\tft_printf\tok\n", 0);
+	printf("|%2d|\t%%2d\tprintf\t\tok\n", 42);
+	ft_printf("|%2d|\t%%2d\tft_printf\tok\n", 42);
+	printf("|%+2d|\t%%+2d\tprintf\t\tok\n", 42);
+	ft_printf("|%+2d|\t%%+2d\tft_printf\tok\n", 42);
+	printf("|%2i|\t%%2i\tprintf\t\tok\n", 42);
+	ft_printf("|%2i|\t%%2i\tft_printf\tok\n", 42);
+	printf("|%+2i|\t%%+2i\tprintf\t\tok\n", 42);
+	ft_printf("|%+2i|\t%%+2i\tft_printf\tok\n", 42);
 	//printf("%+2o\n", 042);//does not compile
 	//printf("%+2u\n", 42U);//does not compile
 	//printf("%+2x\t%%+2x\n", 0x42);//does not compile
@@ -154,9 +176,6 @@ int	main(void)
 	//printf("%+2s\n", "Tokyo");//does not compile
 	printf("\n");
 
-	printf("% 10d\t%% 10d\tprintf\n", 42);
-	printf("% 10d\t%% 10d\tprintf\n", -42);
-	printf("% 10.5d\t%% 10.5d\tprintf\n", -42);
 	//printf("%10.5 d\t%% 10.5d\n", -42);
 	//printf("%0#10d\n", 42);
 	//printf("%100000d\n", 12345);

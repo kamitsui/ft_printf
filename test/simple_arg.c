@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 16:45:45 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/22 10:15:33 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/22 16:02:06 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,14 @@
 int	main(void)
 {
 //	int	r;
-	ft_printf("|%10.0s|\t%%10.0s\targ = '12345'\tft_printf\n", "12345");
-	ft_printf("|%10.8s|\t%%10.8s\targ = '12345'\tft_printf\n", "12345");
-	ft_printf("|%.0s|\t%%.0s\targ = '12345'\tft_printf\n", "12345");
+	printf("|% 10.5d|\t%% 10.5d\tprintf\n", -42);
+	ft_printf("|% 10.5d|\t%% 10.5d\tft_printf\n", -42);
+	printf("|%+10.5d|\t%%+10.5d\tprintf\n", -42);
+	ft_printf("|%+10.5d|\t%%+10.5d\tft_printf\n", -42);
+	printf("|% 10.5d|\t%% 10.5d\tprintf\n", 42);
+	ft_printf("|% 10.5d|\t%% 10.5d\tft_printf\n", 42);
+	printf("|%+10.5d|\t%%+10.5d\tprintf\n", 42);
+	ft_printf("|%+10.5d|\t%%+10.5d\tft_printf\n", 42);
 	//ft_printf("%llu\tllu\n\n", 42);
 	//ft_printf("%lu\tlu\n\n", 42);
 //	------- ok case --------
@@ -48,8 +53,13 @@ int	main(void)
 //	ft_printf("%10.8d\n", -42);
 //	ft_printf("%10u\n", 42);
 //	ft_printf("%10.8u\n", 42);
+//	ft_printf("|%10.0s|\t%%10.0s\targ = '12345'\tft_printf\n", "12345");
+//	ft_printf("|%10.8s|\t%%10.8s\targ = '12345'\tft_printf\n", "12345");
+//	ft_printf("|%.0s|\t%%.0s\targ = '12345'\tft_printf\n", "12345");
 //	printf("%10%\n");
 //	ft_printf("%10%\n");
+//	ft_printf("|%d|\t%%d\tft_printf\n", 0);
+//	ft_printf("|%+d|\t%%+d\tft_printf\n", 0);
 //	------- long time case --------
 //	r = ft_printf("%524288000d", 12345);
 //	ft_printf("\n|%d|\t\t%%524288000d\twidth = 500MB\t\terror case\tft_printf\n", r);

@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 20:15:55 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/22 12:10:22 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/22 15:13:07 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,11 @@ void	decimal(t_sm *machine)
 		tmp_num = -1 * (num / 10);
 		if (tmp_num > 0)
 			itoa_buff(tmp_num, &str[num < 0], 10, machine);
+	}
+	else if ((machine->flag & (BIT_SPACE | BIT_PLUSE)) != FALSE)
+	{
+		adjust_sign(str, machine);
+		itoa_buff(num, &str[num >= 0], 10, machine);
 	}
 	else
 		itoa_buff(num, str, 10, machine);

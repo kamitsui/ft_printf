@@ -6,7 +6,7 @@
 #    By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/09 14:39:52 by kamitsui          #+#    #+#              #
-#    Updated: 2023/03/22 12:25:00 by kamitsui         ###   ########.fr        #
+#    Updated: 2023/03/22 14:05:54 by kamitsui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,8 @@ SRCS = \
 	   adjust_field.c \
 	   adjust_width.c \
 	   adjust_prec.c \
-	   adjust_prec_s.c
+	   adjust_prec_s.c \
+	   adjust_sign.c
 
 # Object files and dependency files
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))

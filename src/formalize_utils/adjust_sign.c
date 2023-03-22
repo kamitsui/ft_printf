@@ -1,44 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   adjust_width.c                                     :+:      :+:    :+:   */
+/*   adjust_sign.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/22 12:15:46 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/22 15:31:21 by kamitsui         ###   ########.fr       */
+/*   Created: 2023/03/22 13:52:47 by kamitsui          #+#    #+#             */
+/*   Updated: 2023/03/22 14:00:49 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdarg.h>
 #include "ft_printf.h"
 #include "process.h"
-#include "formalize.h"
-#include "libft.h"
 
-void	adjust_width(char *str, t_sm *machine)
+void	adjust_sign(char *str, t_sm *machine)
 {
-	int	i;
-	int	len;
-
-	i = 0;
-	len = ft_strlen(str);
-	while (machine->width > len + i)
-	{
-		add_to_buff(' ', machine);
-		if (machine->state == ERROR)
-			return ;
-		i++;
-	}
-	i = 0;
-	while (i < len)
-	{
-		add_to_buff(str[i], machine);
-		if (machine->state == ERROR)
-			return ;
-		i++;
-	}
+	if ((machine->flag & BIT_PLUSE) != FALSE)
+		str[0] = '+';
+	else
+		str[0] = ' ';
 }
-//better type
-//#include <stdlib.h>
-//	size_t	i;
-//	size_t	len;
