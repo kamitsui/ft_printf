@@ -6,88 +6,30 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 16:34:14 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/21 20:39:15 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/22 12:23:36 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "process.h"
+#include "formalize.h"
 #include "libft.h"
-#include <stdlib.h>
-#include <stdio.h>// for debug
-
-static void	a_f_width(char *str, t_sm *machine)
-{
-//	size_t	i;
-//	size_t	len;
-	int	i;
-	int	len;
-
-	i = 0;
-	len = ft_strlen(str);
-	while (machine->width > len + i)
-	{
-		add_to_buff(' ', machine);
-		if (machine->state == ERROR)
-			return ;
-		i++;
-	}
-	i = 0;
-	while (i < len)
-	{
-		add_to_buff(str[i], machine);
-		if (machine->state == ERROR)
-			return ;
-		i++;
-	}
-}
-
-static void	a_f_width_prec(char *str, t_sm *machine)
-{
-//	size_t	i;
-//	size_t	len;
-	int	i;
-	int	len;
-
-	i = 0;
-	while (machine->width > machine->prec + i)
-	{
-		add_to_buff(' ', machine);
-		if (machine->state == ERROR)
-			return ;
-		i++;
-	}
-	i = 0;
-	len = ft_strlen(str);
-	while (machine->prec > len + i)
-	{
-		add_to_buff('0', machine);
-		if (machine->state == ERROR)
-			return ;
-		i++;
-	}
-	i = 0;
-	while (i < len)
-	{
-		add_to_buff(str[i], machine);
-		if (machine->state == ERROR)
-			return ;
-		i++;
-	}
-}
 
 void	adjust_field(char *str, t_sm *machine)
 {
-//	size_t	len;
 	int	len;
 
 	len = (int)ft_strlen(str);
 	if ((machine->flag & BIT_PREC) != FALSE)
-		a_f_width_prec(str, machine);
+		adjust_prec(str, machine);
 	else
-		a_f_width(str, machine);
+		adjust_width(str, machine);
 }
+//better type
+//#include <stdlib.h>
+//	size_t	len;
 //debug code
+//#include <stdio.h>// for debug
 //	printf("%d:width\n", machine->width);// for debug
 //	printf("%d:precision\n", machine->prec);// for debug
 //	printf("%d:len\n", len);// for debug

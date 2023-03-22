@@ -6,7 +6,7 @@
 #    By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/09 14:39:52 by kamitsui          #+#    #+#              #
-#    Updated: 2023/03/21 16:43:27 by kamitsui         ###   ########.fr        #
+#    Updated: 2023/03/22 12:25:00 by kamitsui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ SRC_DIR = src \
 		  src/process_utils \
 		  src/conversion_utils \
 		  src/conversion_utils/unsigned_arg \
-		  src/conversion_utils/signed_arg
+		  src/conversion_utils/signed_arg \
+		  src/formalize_utils
 OBJ_DIR = obj
 INC_DIR = include
 DEP_DIR = .dep
@@ -48,9 +49,6 @@ SRCS = \
 	   string.c \
 	   percent.c \
 	   itoa_buff.c \
-	   formalize.c \
-	   adjust.c \
-	   adjust_field.c \
 	   \
 	   u_va_arg.c \
 	   u_hh.c \
@@ -64,7 +62,14 @@ SRCS = \
 	   s_ll.c \
 	   s_h.c \
 	   s_l.c \
-	   s_int.c
+	   s_int.c \
+	   \
+	   formalize.c \
+	   adjust.c \
+	   adjust_field.c \
+	   adjust_width.c \
+	   adjust_prec.c \
+	   adjust_prec_s.c
 
 # Object files and dependency files
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))

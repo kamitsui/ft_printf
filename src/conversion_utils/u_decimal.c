@@ -6,16 +6,17 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:44:02 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/21 20:46:14 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/22 12:11:39 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
-#include "libft.h"
 #include "ft_printf.h"
 #include "process.h"
 #include "conversion.h"
 #include "va_arg.h"
+#include "formalize.h"
+#include "libft.h"
 
 void	u_decimal(t_sm *machine)
 {

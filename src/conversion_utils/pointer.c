@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:42:12 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/21 21:28:30 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/22 12:11:14 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "process.h"
 #include "conversion.h"
 #include "va_arg.h"
+#include "formalize.h"
 
 void	pointer(t_sm *machine)
 {

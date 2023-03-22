@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 20:15:55 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/21 21:34:30 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/22 12:10:22 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "process.h"
 #include "conversion.h"
 #include "va_arg.h"
+#include "formalize.h"
 #include "libft.h"
 
 static	size_t	get_digit(long long num)

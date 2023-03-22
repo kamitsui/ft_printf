@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:41:56 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/21 21:13:36 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/22 12:10:48 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "process.h"
 #include "conversion.h"
 #include "va_arg.h"
+#include "formalize.h"
 
 void	octal(t_sm *machine)
 {

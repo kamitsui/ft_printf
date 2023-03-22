@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 20:31:50 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/21 16:13:44 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/22 12:24:06 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "ft_printf.h"
 #include "process.h"
 #include "conversion.h"
+#include "formalize.h"
 #include "libft.h"
 
 void	formalize(char *str, t_sm *machine)
@@ -40,5 +41,3 @@ void	formalize(char *str, t_sm *machine)
 }
 //void code
 //	if (machine->flag & ~(~0 << (NB_FALG + NB_FIELD)) != FALSE)
-//debug code
-//#include <stdio.h>// for debug

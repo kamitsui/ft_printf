@@ -1,31 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   character.c                                        :+:      :+:    :+:   */
+/*   adjust_prec_s.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/09 14:41:02 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/22 12:09:37 by kamitsui         ###   ########.fr       */
+/*   Created: 2023/03/22 12:20:18 by kamitsui          #+#    #+#             */
+/*   Updated: 2023/03/22 12:21:23 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
 #include "ft_printf.h"
 #include "process.h"
-#include "conversion.h"
 #include "formalize.h"
 #include "libft.h"
 
-void	character(t_sm *machine)
+void	adjust_prec_s(char *str, t_sm *machine)
 {
-	char	str[2];
+	int	i;
+	int	len;
 
-	ft_bzero(str, 2);
-	str[0] = (char)va_arg(*(machine->ap), int);
-	if (str[0] == 0x0)
-		return ;
-	formalize(str, machine);
+	i = 0;
+	len = ft_strlen(str);
+	if (len > machine->prec)
+		len = machine->prec;
+	while (len + i < machine->width)
+	{
+		add_to_buff(' ', machine);
+		if (machine->state == ERROR)
+			return ;
+		i++;
+	}
+	i = 0;
+	while (i < len)
+	{
+		add_to_buff(str[i], machine);
+		if (machine->state == ERROR)
+			return ;
+		i++;
+	}
 }
-//this code moved to formalize.c
-//	add_to_buff(c, machine);
+//better type
+//#include <stdlib.h>
+//	size_t	i;
+//	size_t	len;

@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:43:50 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/21 21:33:07 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/22 12:11:23 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "ft_printf.h"
 #include "process.h"
 #include "conversion.h"
+#include "formalize.h"
 #include "libft.h"
 
 void	string(t_sm *machine)
