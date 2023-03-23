@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 12:04:49 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/22 12:26:45 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/22 18:40:54 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ void	adjust_width(char *str, t_sm *machine);
 void	adjust_prec(char *str, t_sm *machine);
 void	adjust_prec_s(char *str, t_sm *machine);
 void	adjust_sign(char *str, t_sm *machine);
-void	adjust_base(char *str, t_sm *machine);
+void	adjust_hash(char *str, t_sm *machine);
 
 #endif

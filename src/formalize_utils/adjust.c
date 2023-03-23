@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:29:09 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/22 15:34:18 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/22 19:19:30 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,9 @@ void	adjust(char *str, t_sm *machine)
 	{
 		len = ft_strlen(str);
 		i = 0;
-		while (i < len)
+		while (i < len && (machine->state != ERROR))
 		{
 			add_to_buff(str[i], machine);
-			if (machine->state == ERROR)
-				return ;
 			i++;
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:41:56 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/22 12:10:48 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/22 18:48:21 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,13 @@ void	octal(t_sm *machine)
 	ft_bzero(str, 42);//42 is not better  >> xx_SIZE
 	base = 010;
 	num = u_va_arg(machine);
-	itoa_buff(num, str, base, machine);
+	if ((machine->flag & BIT_HASH) != FALSE)
+	{
+		adjust_hash(str, machine);
+		itoa_buff(num, &str[1], base, machine);
+	}
+	else
+		itoa_buff(num, str, base, machine);
 	formalize(str, machine);
 }
 //this code moved to formalize.c

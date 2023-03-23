@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 12:17:05 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/22 17:12:20 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/22 18:08:39 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	decimal_unsigned(char *str, t_sm *machine)
 	}
 }
 ///// must fix error handl code
-#include <stdio.h>
+
 static void	decimal_signed(char *str, t_sm *machine)
 {
 	int	i;
