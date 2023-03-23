@@ -1,46 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   adjust_prec_s.c                                    :+:      :+:    :+:   */
+/*   pad_n_str.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/22 12:20:18 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/22 12:21:23 by kamitsui         ###   ########.fr       */
+/*   Created: 2023/03/23 11:29:10 by kamitsui          #+#    #+#             */
+/*   Updated: 2023/03/23 15:55:28 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "process.h"
-#include "formalize.h"
 #include "libft.h"
 
-void	adjust_prec_s(char *str, t_sm *machine)
+void	pad_n_str(char *str, t_sm *machine, size_t limit)
 {
-	int	i;
-	int	len;
+	size_t	i;
 
 	i = 0;
-	len = ft_strlen(str);
-	if (len > machine->prec)
-		len = machine->prec;
-	while (len + i < machine->width)
-	{
-		add_to_buff(' ', machine);
-		if (machine->state == ERROR)
-			return ;
-		i++;
-	}
-	i = 0;
-	while (i < len)
+	while (i < limit && (machine->state != ERROR))
 	{
 		add_to_buff(str[i], machine);
-		if (machine->state == ERROR)
-			return ;
 		i++;
 	}
 }
-//better type
-//#include <stdlib.h>
-//	size_t	i;
-//	size_t	len;

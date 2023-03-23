@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 21:22:52 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/21 20:07:03 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/23 12:43:42 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "process.h"
 #include "libft.h"
 #include <limits.h>
+#include <stddef.h>
 
 int	get_field_nbr(char *input, t_sm *machine)
 {
@@ -39,7 +40,8 @@ int	get_field_nbr(char *input, t_sm *machine)
 		size++;
 	}
 	if ((machine->flag & BIT_PREC) != FALSE)
-		machine->prec = num;
+		machine->prec = (size_t)num;
+		//machine->prec = num;
 	else
 		machine->width = num;
 	return (size);

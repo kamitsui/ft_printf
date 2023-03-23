@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 16:34:14 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/22 12:23:36 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/23 11:02:18 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@
 
 void	adjust_field(char *str, t_sm *machine)
 {
-	int	len;
-
-	len = (int)ft_strlen(str);
 	if ((machine->flag & BIT_PREC) != FALSE)
 		adjust_prec(str, machine);
 	else

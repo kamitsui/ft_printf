@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 17:10:46 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/19 14:18:40 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/23 11:26:24 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
+# include <stdlib.h>
 
 enum e_state
 {
@@ -34,14 +35,16 @@ typedef struct s_sm
 	char			*out;
 	int				out_size;
 	int				flag;
-	int				width;
-	int				prec;
+	size_t			width;
+	size_t			prec;
 }	t_sm;
 
 void	process(char *input, t_sm *machine);
 int		ft_printf(char *input, ...);
 
 #endif
-// void this code
-	//size_t			len;
-	//size_t			out_size;
+//void this code
+//	size_t			len;
+//	size_t			out_size;
+//	int				width;
+//	int				prec;

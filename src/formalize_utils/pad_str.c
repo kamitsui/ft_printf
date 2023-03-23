@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   adjust_prec.c                                      :+:      :+:    :+:   */
+/*   pad_str.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/22 12:17:05 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/23 10:33:03 by kamitsui         ###   ########.fr       */
+/*   Created: 2023/03/23 10:51:46 by kamitsui          #+#    #+#             */
+/*   Updated: 2023/03/23 11:25:58 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "process.h"
-#include "formalize.h"
+#include "libft.h"
 
-void	adjust_prec(char *str, t_sm *machine)
+void	pad_str(char *str, t_sm *machine)
 {
-	if ((machine->flag & BIT_S) != FALSE)
-		adjust_string(str, machine);
-	else
-		adjust_number(str, machine);
+	size_t	i;
+	size_t	len;
+
+	i = 0;
+	len = ft_strlen(str);
+	while (i < len && (machine->state != ERROR))
+	{
+		add_to_buff(str[i], machine);
+		i++;
+	}
 }

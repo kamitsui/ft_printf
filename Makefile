@@ -6,7 +6,7 @@
 #    By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/09 14:39:52 by kamitsui          #+#    #+#              #
-#    Updated: 2023/03/22 18:41:14 by kamitsui         ###   ########.fr        #
+#    Updated: 2023/03/23 19:08:11 by kamitsui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,9 +69,16 @@ SRCS = \
 	   adjust_field.c \
 	   adjust_width.c \
 	   adjust_prec.c \
-	   adjust_prec_s.c \
+	   adjust_number.c \
+	   adjust_string.c \
 	   adjust_sign.c \
-	   adjust_hash.c
+	   adjust_hash.c \
+	   pad_str.c \
+	   pad_n_str.c \
+	   pad_width.c \
+	   pad_prec.c \
+	   sequence_unsigned.c \
+	   sequence_signed.c
 
 # Object files and dependency files
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
@@ -88,6 +95,7 @@ vpath %.c $(SRC_DIR)
 CC = cc
 #CFLAGS = -Wall -Wextra -Werror
 CFLAGS = -Wall -Wextra -Werror -g
+#CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 #CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 DFLAGS = -MMD -MP -MF $(@:$(OBJ_DIR)/%.o=$(DEP_DIR)/%.d)
 IFLAGS = -I$(INC_DIR)
