@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 13:41:22 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/23 15:25:03 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/24 09:22:04 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,16 @@ void	pad_width(t_sm *machine, size_t offset)
 	size_t	i;
 
 	i = 0;
-	while (i + offset < machine->width && (machine->state != ERROR))
-	{
-		add_to_buff(' ', machine);
-		i++;
-	}
+	if ((machine->flag & BIT_ZERO) != FALSE)
+		while (i + offset < machine->width && (machine->state != ERROR))
+		{
+			add_to_buff('0', machine);
+			i++;
+		}
+	else
+		while (i + offset < machine->width && (machine->state != ERROR))
+		{
+			add_to_buff(' ', machine);
+			i++;
+		}
 }

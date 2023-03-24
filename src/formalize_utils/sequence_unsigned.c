@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 19:03:38 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/23 19:04:05 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/24 09:14:39 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,41 @@
 #include "libft.h"
 #include <stddef.h>
 
-void	sequence_unsigned(char *str, t_sm *machine)
+static void	seq_u_right(char *str, t_sm *machine)
 {
 	size_t	len;
 	size_t	offset;
 
 	len = ft_strlen(str);
+	offset = machine->prec;
 	if (len > machine->prec)
-		pad_width(machine, len);
-	else
-	{
-		offset = machine->prec;
-		pad_width(machine, offset);
-		pad_prec(machine, len);
-	}
+		offset = len;
+	pad_width(machine, offset);
+	pad_prec(machine, len + 1);
 	pad_n_str(str, machine, len);
 }
+
+static void	seq_u_left(char *str, t_sm *machine)
+{
+	size_t	len;
+	size_t	offset;
+
+	len = ft_strlen(str);
+	offset = machine->prec;
+	if (len > machine->prec)
+		offset = len;
+	pad_prec(machine, len);
+	pad_n_str(str, machine, len + 1);
+	pad_width(machine, offset);
+}
+
+void	sequence_unsigned(char *str, t_sm *machine)
+{
+	if ((machine->flag & BIT_LEFT) != FALSE)
+		seq_u_left(str, machine);
+	else
+		seq_u_right(str, machine);
+}
+//must add error handle
+//	if (machine->state == ERROR)
+//		return ;
