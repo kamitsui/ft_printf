@@ -6,7 +6,7 @@
 #    By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/09 14:39:52 by kamitsui          #+#    #+#              #
-#    Updated: 2023/03/23 19:08:11 by kamitsui         ###   ########.fr        #
+#    Updated: 2023/03/24 21:39:58 by kamitsui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -127,6 +127,8 @@ $(NAME): $(LIBFT) $(DEPS) $(OBJS)
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
 
+bonus: $(NAME)
+
 # Clean target
 clean:
 	rm -rf $(OBJ_DIR) $(DEP_DIR)
@@ -140,4 +142,4 @@ re: fclean all
 
 #include $(DEPS)
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re

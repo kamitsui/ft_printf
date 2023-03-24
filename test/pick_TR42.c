@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   character.c                                        :+:      :+:    :+:   */
+/*   pick_TR42.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/09 14:41:02 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/24 20:43:15 by kamitsui         ###   ########.fr       */
+/*   Created: 2023/03/24 19:11:42 by kamitsui          #+#    #+#             */
+/*   Updated: 2023/03/24 19:48:53 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
+#include <stdio.h>
 #include "ft_printf.h"
-#include "process.h"
-#include "conversion.h"
-#include "formalize.h"
-#include "libft.h"
+#include <unistd.h>
 
-void	character(t_sm *machine)
+int	main(void)
 {
-	char	str[2];
-
-	ft_bzero(str, 2);
-	str[0] = (char)va_arg(*(machine->ap), int);
-	if (str[0] == '\0')
-		add_to_buff(str[0], machine);
-	else
-		formalize(str, machine);
+//	ft_printf("---- %%c test5 ----\n");
+	//char str[2] = {'0', '1'};
+//	char str[2] = {0, '1'};
+//	write(1, str, 2);
+//	printf(" %c %c %c \tprintf\n", '0', 0, '1');
+	ft_printf(" %c %c %c \tft_printf\n", '0', 0, '1');
+	return (0);
 }
-//this code moved to formalize.c
-//	add_to_buff(c, machine);

@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 12:15:46 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/24 11:12:28 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/24 19:07:59 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@
 
 static void	case_signed_num(const char *str, t_sm *machine)
 {
-	size_t	i;
 	size_t	len;
 
-	i = 0;
 	len = ft_strlen(str);
 	add_to_buff(str[0], machine);
 	if ((machine->flag & BIT_LEFT) != FALSE)
@@ -37,10 +35,8 @@ static void	case_signed_num(const char *str, t_sm *machine)
 
 static void	case_other(const char *str, t_sm *machine)
 {
-	size_t	i;
 	size_t	len;
 
-	i = 0;
 	len = ft_strlen(str);
 	if ((machine->flag & BIT_LEFT) != FALSE)
 	{
