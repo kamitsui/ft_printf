@@ -6,14 +6,14 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 20:03:43 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/21 18:33:50 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/24 10:51:58 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 
-void	add_to_buff(char c, t_sm *machine)
+void	add_to_buff(const char c, t_sm *machine)
 {
 	if (machine->len == 4096)
 	{

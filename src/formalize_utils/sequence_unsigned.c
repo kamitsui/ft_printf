@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 19:03:38 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/24 09:14:39 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/24 11:03:26 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "libft.h"
 #include <stddef.h>
 
-static void	seq_u_right(char *str, t_sm *machine)
+static void	seq_u_right(const char *str, t_sm *machine)
 {
 	size_t	len;
 	size_t	offset;
@@ -30,7 +30,7 @@ static void	seq_u_right(char *str, t_sm *machine)
 	pad_n_str(str, machine, len);
 }
 
-static void	seq_u_left(char *str, t_sm *machine)
+static void	seq_u_left(const char *str, t_sm *machine)
 {
 	size_t	len;
 	size_t	offset;
@@ -44,7 +44,7 @@ static void	seq_u_left(char *str, t_sm *machine)
 	pad_width(machine, offset);
 }
 
-void	sequence_unsigned(char *str, t_sm *machine)
+void	sequence_unsigned(const char *str, t_sm *machine)
 {
 	if ((machine->flag & BIT_LEFT) != FALSE)
 		seq_u_left(str, machine);

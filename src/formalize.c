@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 20:31:50 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/22 12:24:06 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/24 10:49:25 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "formalize.h"
 #include "libft.h"
 
-void	formalize(char *str, t_sm *machine)
+void	formalize(const char *str, t_sm *machine)
 {
 	int		adjust_flag;
 	size_t	i;

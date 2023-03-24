@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 21:22:52 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/23 12:43:42 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/24 10:52:53 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <limits.h>
 #include <stddef.h>
 
-int	get_field_nbr(char *input, t_sm *machine)
+int	get_field_nbr(const char *input, t_sm *machine)
 {
 	int	size;
 	int	num;

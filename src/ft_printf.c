@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 14:49:27 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/20 20:48:00 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/24 10:45:00 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	initialize_machine(t_sm *machine, va_list *ap)
 	machine->prec = 0;
 }
 
-int	ft_printf(char *input, ...)
+int	ft_printf(const char *input, ...)
 {
 	t_sm	machine;
 	va_list	ap;

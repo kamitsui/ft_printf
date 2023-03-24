@@ -6,14 +6,14 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 19:53:40 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/10 22:04:13 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/24 10:53:07 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "process.h"
 
-int	letter(char *input, t_sm *machine)
+int	letter(const char *input, t_sm *machine)
 {
 	if (*input == '%')
 		machine->state = FLAG;

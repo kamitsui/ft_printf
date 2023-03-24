@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 17:39:51 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/21 13:24:26 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/24 10:52:26 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "ft_printf.h"
 #include "process.h"
 
-int	field(char *input, t_sm *machine)
+int	field(const char *input, t_sm *machine)
 {
 	static t_f_field	f_field[NB_FIELD] = {
 		width, precision};

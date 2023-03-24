@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 20:40:43 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/18 20:40:52 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/24 10:53:39 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "ft_printf.h"
 #include "process.h"
 
-int	prefix(char *input, t_sm *machine)
+int	prefix(const char *input, t_sm *machine)
 {
 	static char	*str_prefix[NB_PREFIX] = {
 		PREFIX_HH, PREFIX_LL, PREFIX_H, PREFIX_L};

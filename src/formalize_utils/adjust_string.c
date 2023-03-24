@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 12:20:18 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/23 17:06:25 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/24 11:12:42 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "formalize.h"
 #include "libft.h"
 
-void	adjust_string(char *str, t_sm *machine)
+void	adjust_string(const char *str, t_sm *machine)
 {
 	size_t	len;
 

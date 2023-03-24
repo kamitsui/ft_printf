@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 16:34:14 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/23 11:02:18 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/24 11:14:00 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "formalize.h"
 #include "libft.h"
 
-void	adjust_field(char *str, t_sm *machine)
+void	adjust_field(const char *str, t_sm *machine)
 {
 	if ((machine->flag & BIT_PREC) != FALSE)
 		adjust_prec(str, machine);

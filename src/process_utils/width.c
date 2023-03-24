@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 20:47:49 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/21 12:57:00 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/24 10:54:11 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "process.h"
 #include "libft.h"
 
-int	width(char *input, t_sm *machine)
+int	width(const char *input, t_sm *machine)
 {
 	int	size;
 

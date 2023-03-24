@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 15:19:22 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/18 15:57:37 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/24 10:49:59 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "process.h"
 #include "libft.h"
 
-void	process(char *input, t_sm *machine)
+void	process(const char *input, t_sm *machine)
 {
 	static t_f_process	f_process[5] = {letter, flag, field, prefix, type};
 	int					ret;

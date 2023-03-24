@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 20:43:25 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/21 13:49:07 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/24 10:54:01 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "process.h"
 #include "conversion.h"
 
-int	type(char *input, t_sm *machine)
+int	type(const char *input, t_sm *machine)
 {
 	static char	*str_type;
 	int			i;

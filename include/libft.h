@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:55:57 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/02/22 13:00:48 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/24 10:56:53 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,8 @@ long	ft_strtol(const char *str, char **endptr, int base);
 char	*ft_strndup(const char *s1, size_t n);
 
 // Additional other function
-char	*ft_strjoin_free(char const *s1, char const *s2);
-int		ft_strnequ(char *s1, char *s2, int n);
+char	*ft_strjoin_free(const char *s1, const char *s2);
+int		ft_strnequ(const char *s1, const char *s2, int n);
 char	*ft_strnew(size_t size);
 void	ft_strdel(char **as);
 char	*ft_itoa_binary(int n);

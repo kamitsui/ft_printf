@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 12:17:05 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/23 19:07:05 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/24 11:13:36 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@
 //	}
 //}
 //
-void	adjust_number(char *str, t_sm *machine)
+void	adjust_number(const char *str, t_sm *machine)
 {
 	if (ft_isdigit(*str) == TRUE)
 		sequence_unsigned(str, machine);

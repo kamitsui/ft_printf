@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 17:20:59 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/19 16:18:56 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/24 10:51:31 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,18 +62,18 @@
 # define BIT_S		0x100000
 # define BIT_PER	0x200000
 
-typedef int		(*t_f_process)(char *, t_sm *);
-int		letter(char *input, t_sm *machine);
-int		flag(char *input, t_sm *machine);
-int		field(char *input, t_sm *machine);
-int		prefix(char *input, t_sm *machine);
-int		type(char *input, t_sm *machine);
-int		error(char *input, t_sm *machine);
-void	add_to_buff(char c, t_sm *machine);
+typedef int		(*t_f_process)(const char *, t_sm *);
+int		letter(const char *input, t_sm *machine);
+int		flag(const char *input, t_sm *machine);
+int		field(const char *input, t_sm *machine);
+int		prefix(const char *input, t_sm *machine);
+int		type(const char *input, t_sm *machine);
+int		error(const char *input, t_sm *machine);
+void	add_to_buff(const char c, t_sm *machine);
 
-typedef int	(*t_f_field)(char *, t_sm *);
-int	width(char *input, t_sm *machine);
-int	precision(char *input, t_sm *machine);
-int	get_field_nbr(char *input, t_sm *machine);
+typedef int	(*t_f_field)(const char *, t_sm *);
+int	width(const char *input, t_sm *machine);
+int	precision(const char *input, t_sm *machine);
+int	get_field_nbr(const char *input, t_sm *machine);
 
 #endif

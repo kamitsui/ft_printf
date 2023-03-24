@@ -6,14 +6,14 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 11:44:02 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/09 17:28:03 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/24 10:52:17 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "process.h"
 
-static void	letter_error(char *input, t_sm *machine)
+static void	letter_error(const char *input, t_sm *machine)
 {
 	int	size;
 	int	i;
@@ -35,7 +35,7 @@ static void	letter_error(char *input, t_sm *machine)
 	}
 }
 
-int	error(char *input, t_sm *machine)
+int	error(const char *input, t_sm *machine)
 {
 	letter_error(input, machine);
 	machine->state = LETTER;

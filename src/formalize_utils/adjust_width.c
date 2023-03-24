@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 12:15:46 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/24 10:14:57 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/24 11:12:28 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "formalize.h"
 #include "libft.h"
 
-static void	case_signed_num(char *str, t_sm *machine)
+static void	case_signed_num(const char *str, t_sm *machine)
 {
 	size_t	i;
 	size_t	len;
@@ -35,7 +35,7 @@ static void	case_signed_num(char *str, t_sm *machine)
 	}
 }
 
-static void	case_other(char *str, t_sm *machine)
+static void	case_other(const char *str, t_sm *machine)
 {
 	size_t	i;
 	size_t	len;
@@ -54,7 +54,7 @@ static void	case_other(char *str, t_sm *machine)
 	}
 }
 
-void	adjust_width(char *str, t_sm *machine)
+void	adjust_width(const char *str, t_sm *machine)
 {
 	//if ((machine->flag & (BIT_PLUSE | BIT_SPACE | BIT_D)) != FALSE)
 	if ((machine->flag & BIT_ZERO) != FALSE)

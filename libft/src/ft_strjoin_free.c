@@ -6,14 +6,14 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 14:20:58 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/02/20 14:13:03 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/24 10:57:29 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-char	*ft_strjoin_free(char const *s1, char const *s2)
+char	*ft_strjoin_free(const char *s1, const char *s2)
 {
 	char	*str;
 	size_t	len1;

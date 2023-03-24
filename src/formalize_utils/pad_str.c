@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 10:51:46 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/23 11:25:58 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/24 11:10:11 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "process.h"
 #include "libft.h"
 
-void	pad_str(char *str, t_sm *machine)
+void	pad_str(const char *str, t_sm *machine)
 {
 	size_t	i;
 	size_t	len;
