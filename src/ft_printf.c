@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 14:49:27 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/24 21:28:22 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/25 09:48:46 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,24 +28,6 @@ static void	initialize_machine(t_sm *machine, va_list *ap)
 	machine->flag = 0x0;
 	machine->width = 0;
 	machine->prec = 0;
-}
-
-char	*join_to_out(const char *s1, const char *s2, size_t len2)
-{
-	char	*str;
-	size_t	len1;
-
-	if ((s1 == NULL) || (s2 == NULL))
-		return (NULL);
-	len1 = ft_strlen(s1);
-	str = ft_strnew(len1 + len2);
-	if (str == NULL)
-		return (NULL);
-	ft_strlcpy(str, s1, len1 + 1);
-	ft_memcpy(&str[len1], s2, len2);
-	//ft_strlcat(str, s2, len1 + len2 + 1);
-	free((void *)s1);
-	return (str);
 }
 
 int	ft_printf(const char *input, ...)

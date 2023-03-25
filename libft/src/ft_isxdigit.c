@@ -1,25 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   adjust_number.c                                    :+:      :+:    :+:   */
+/*   ft_isxdigit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/22 12:17:05 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/25 12:37:04 by kamitsui         ###   ########.fr       */
+/*   Created: 2023/03/25 12:34:33 by kamitsui          #+#    #+#             */
+/*   Updated: 2023/03/25 12:35:10 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "process.h"
-#include "formalize.h"
-#include "libft.h"
-#include <stddef.h>
-
-void	adjust_number(const char *str, t_sm *machine)
+int	ft_isxdigit(int c)
 {
-	if (ft_isxdigit(*str) == TRUE)
-		sequence_unsigned(str, machine);
-	else
-		sequence_signed(str, machine);
+	return ((c >= '0' && c <= '9')
+			|| (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F'));
 }

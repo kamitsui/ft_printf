@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:55:57 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/24 10:56:53 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/25 12:36:17 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ long	ft_strtol(const char *str, char **endptr, int base);
 char	*ft_strndup(const char *s1, size_t n);
 
 // Additional other function
+int		ft_isxdigit(int c);
 char	*ft_strjoin_free(const char *s1, const char *s2);
 int		ft_strnequ(const char *s1, const char *s2, int n);
 char	*ft_strnew(size_t size);

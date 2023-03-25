@@ -6,7 +6,7 @@
 #    By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/09 14:39:52 by kamitsui          #+#    #+#              #
-#    Updated: 2023/03/24 21:39:58 by kamitsui         ###   ########.fr        #
+#    Updated: 2023/03/25 09:51:45 by kamitsui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRCS = \
 	   ft_printf.c \
 	   process.c \
 	   conversion.c \
+	   join_to_out.c \
 	   \
 	   letter.c \
 	   flag.c \

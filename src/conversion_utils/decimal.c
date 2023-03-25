@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 20:15:55 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/22 15:13:07 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/25 12:16:37 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	decimal(t_sm *machine)
 	len = get_digit(num);
 	if (num < 0)
 	{
+		//machine->flag |= BIT_SPACE;// beter BIT_NEGATIVE
 		str[0] = '-';
 		str[len - 1] = -1 * (num % 10) + '0';
 		tmp_num = -1 * (num / 10);

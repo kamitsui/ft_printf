@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:41:02 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/24 20:43:15 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/25 10:07:31 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,11 @@ void	character(t_sm *machine)
 
 	ft_bzero(str, 2);
 	str[0] = (char)va_arg(*(machine->ap), int);
-	if (str[0] == '\0')
-		add_to_buff(str[0], machine);
-	else
-		formalize(str, machine);
+	formalize(str, machine);
+//	if (str[0] == '\0')
+//		add_to_buff(str[0], machine);
+//	else
+//		formalize(str, machine);
 }
 //this code moved to formalize.c
 //	add_to_buff(c, machine);

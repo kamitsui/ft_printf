@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 12:15:46 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/24 19:07:59 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/25 12:22:36 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ static void	case_other(const char *str, t_sm *machine)
 	size_t	len;
 
 	len = ft_strlen(str);
+	if ((machine->flag & BIT_C) && str[0] == '\0')
+		len = 1;
 	if ((machine->flag & BIT_LEFT) != FALSE)
 	{
 		pad_n_str(str, machine, len);
@@ -52,8 +54,9 @@ static void	case_other(const char *str, t_sm *machine)
 
 void	adjust_width(const char *str, t_sm *machine)
 {
-	//if ((machine->flag & (BIT_PLUSE | BIT_SPACE | BIT_D)) != FALSE)
-	if ((machine->flag & BIT_ZERO) != FALSE)
+	if ((machine->flag & (BIT_PLUSE | BIT_SPACE))
+			|| ((machine->flag & (BIT_D | BIT_I)) && str[0] == '-') != FALSE)
+	//if ((machine->flag & BIT_ZERO) != FALSE)
 		case_signed_num(str, machine);
 	else
 		case_other(str, machine);
