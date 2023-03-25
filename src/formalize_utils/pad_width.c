@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 13:41:22 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/25 20:48:47 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/25 21:57:26 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ static void	pad_space(t_sm *machine, size_t offset)
 void	pad_width(t_sm *machine, size_t offset)
 {
 	if (((machine->flag & BIT_ZERO) != FALSE)
-		&& ((~machine->flag & BIT_LEFT) != FALSE))
+		&& ((~machine->flag & BIT_LEFT) != FALSE)
+		&& ((~machine->flag & (BIT_ZERO | BIT_PREC)) != FALSE))
 		pad_zero(machine, offset);
 	else
 		pad_space(machine, offset);
