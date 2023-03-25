@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 20:15:55 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/25 12:16:37 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/25 16:27:41 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void	decimal(t_sm *machine)
 	len = get_digit(num);
 	if (num < 0)
 	{
-		//machine->flag |= BIT_SPACE;// beter BIT_NEGATIVE
 		str[0] = '-';
 		str[len - 1] = -1 * (num % 10) + '0';
 		tmp_num = -1 * (num / 10);
@@ -76,53 +75,3 @@ void	decimal(t_sm *machine)
 //	printf("|num:%d|", (int)num);// for debug
 //	printf("|len:%d|", (int)len);// for debug
 //	printf("|str:%s|", str);// for debug
-//this code moved to formalize.c
-//	size_t		i;
-//	i = 0;
-//	while (i < len)
-//	{
-//		add_to_buff(str[i], machine);
-//		if (machine->state == ERROR)
-//			return ;
-//		i++;
-//	}
-//mandatory
-//static void	get_nbr(long num, t_sm *machine)
-//{
-//	if (num < 0)
-//	{
-//		add_to_buff('-', machine);
-//		if (machine->state == ERROR)
-//			return ;
-//		if (num < -9)
-//			get_nbr(num / (-10), machine);
-//		add_to_buff(-1 * (num % 10) + '0', machine);
-//		return ;
-//	}
-//	if (num > 9)
-//		get_nbr(num / 10, machine);
-//	if (machine->state == ERROR)
-//		return ;
-//	add_to_buff((num % 10) + '0', machine);
-//}
-//
-//void	decimal(t_sm *machine)
-//{
-//	get_nbr((long)va_arg(*(machine->ap), int), machine);
-//}
-//#include <stdio.h>//warrrrrrrrinig
-//void	decimal(t_sm *machine)
-//{
-//	long	num;
-//
-//	num = (long)va_arg(*(machine->ap), int);
-//	//if (ft_strnequ(&(machine->ap), "", 1) == TRUE)
-//	if (*(machine->ap) == 0)
-//	//if ((machine->ap)[0] == 0)
-//	{
-//		printf("error\n");
-//		machine->state = ERROR;
-//		return ;
-//	}
-//	get_nbr(num, machine);
-//}

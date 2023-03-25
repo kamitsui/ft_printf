@@ -6,13 +6,14 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:41:49 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/20 19:00:14 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/25 15:37:37 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "ft_printf.h"
 #include "process.h"
+#include "libft.h"
+#include <stddef.h>
 
 static char	get_digit(unsigned long num, int base, t_sm *machine)
 {
@@ -29,9 +30,9 @@ static char	get_digit(unsigned long num, int base, t_sm *machine)
 	}
 }
 
-static int	itoa_len(unsigned long num, long base)
+static size_t	itoa_len(unsigned long num, long base)
 {
-	int	len;
+	size_t	len;
 
 	len = 1;
 	if (num < (unsigned long)base)
@@ -44,18 +45,18 @@ static int	itoa_len(unsigned long num, long base)
 	return (len);
 }
 
-//IDEA change of name ... t_sm -> t_st_machine
 char	*itoa_buff(unsigned long long num, char *str, int base, t_sm *machine)
 {
-	int	len;
+	size_t	len;
+	size_t	i;
 
 	len = itoa_len(num, base);
-//	str[len] = '\0';
-	while (len > 0)
+	i = 1;
+	while (len > i - 1)
 	{
-		str[len - 1] = get_digit(num, base, machine);
+		str[len - i] = get_digit(num, base, machine);
 		num /= base;
-		len--;
+		i++;
 	}
 	return (str);
 }

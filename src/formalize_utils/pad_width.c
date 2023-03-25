@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 13:41:22 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/24 09:22:04 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/25 20:48:47 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,35 @@
 #include "process.h"
 #include "libft.h"
 
-void	pad_width(t_sm *machine, size_t offset)
+static void	pad_zero(t_sm *machine, size_t offset)
 {
 	size_t	i;
 
 	i = 0;
-	if ((machine->flag & BIT_ZERO) != FALSE)
-		while (i + offset < machine->width && (machine->state != ERROR))
-		{
-			add_to_buff('0', machine);
-			i++;
-		}
+	while (((i + offset) < machine->width) && (machine->state != ERROR))
+	{
+		add_to_buff('0', machine);
+		i++;
+	}
+}
+
+static void	pad_space(t_sm *machine, size_t offset)
+{
+	size_t	i;
+
+	i = 0;
+	while (((i + offset) < machine->width) && (machine->state != ERROR))
+	{
+		add_to_buff(' ', machine);
+		i++;
+	}
+}
+
+void	pad_width(t_sm *machine, size_t offset)
+{
+	if (((machine->flag & BIT_ZERO) != FALSE)
+		&& ((~machine->flag & BIT_LEFT) != FALSE))
+		pad_zero(machine, offset);
 	else
-		while (i + offset < machine->width && (machine->state != ERROR))
-		{
-			add_to_buff(' ', machine);
-			i++;
-		}
+		pad_space(machine, offset);
 }

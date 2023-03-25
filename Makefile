@@ -6,7 +6,7 @@
 #    By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/09 14:39:52 by kamitsui          #+#    #+#              #
-#    Updated: 2023/03/25 09:51:45 by kamitsui         ###   ########.fr        #
+#    Updated: 2023/03/25 14:47:09 by kamitsui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,6 @@ SRCS = \
 	   \
 	   formalize.c \
 	   adjust.c \
-	   adjust_field.c \
 	   adjust_width.c \
 	   adjust_prec.c \
 	   adjust_number.c \

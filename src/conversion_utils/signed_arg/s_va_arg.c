@@ -6,18 +6,15 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 17:13:29 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/20 17:42:26 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/25 17:09:40 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include <stdarg.h>
 #include "ft_printf.h"
 #include "process.h"
 #include "conversion.h"
 #include "va_arg.h"
-#include <stdio.h>//for debug
-#include "libft.h"//for debug
 
 long long	s_va_arg(t_sm *machine)
 {
@@ -26,7 +23,6 @@ long long	s_va_arg(t_sm *machine)
 	int					bit_offset;
 	static t_f_s_va_arg	f_s_va_arg[5] = {s_hh, s_ll, s_h, s_l, s_int};
 
-//	printf("%d:flag\n", machine->flag);//for debug
 	bit_offset = NB_FLAG + NB_FIELD + 1;
 	i = 0;
 	while (i < NB_PREFIX)
@@ -41,3 +37,7 @@ long long	s_va_arg(t_sm *machine)
 	num = (long long)f_s_va_arg[i](machine);
 	return (num);
 }
+//debug code
+//#include <stdio.h>//for debug
+//#include "libft.h"//for debug
+//	printf("%d:flag\n", machine->flag);//for debug

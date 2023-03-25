@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 20:31:50 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/25 11:29:01 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/25 19:16:18 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	formalize(const char *str, t_sm *machine)
 	int		adjust_flag;
 	size_t	len;
 
-	//adjust_flag = BIT_HASH | BIT_SPACE | BIT_PLUSE | BIT_WIDTH | BIT_PREC;
 	adjust_flag = BIT_WIDTH | BIT_PREC;
 	if ((machine->flag & adjust_flag) != FALSE)
 		adjust(str, machine);
@@ -37,5 +36,3 @@ void	formalize(const char *str, t_sm *machine)
 		}
 	}
 }
-//void code
-//	if (machine->flag & ~(~0 << (NB_FALG + NB_FIELD)) != FALSE)

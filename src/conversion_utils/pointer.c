@@ -6,53 +6,41 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:42:12 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/22 12:11:14 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/25 17:08:07 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include <stdarg.h>
-#include "libft.h"
+#include <stdint.h>
 #include "ft_printf.h"
-#include "process.h"
 #include "conversion.h"
-#include "va_arg.h"
 #include "formalize.h"
+#include "libft.h"
 
 void	pointer(t_sm *machine)
 {
 	char			str[42];
-	void			*p;
+	uintptr_t		p;
 	int				base;
 
-	ft_bzero(str, 42);//42 is not better  >> xx_SIZE
+	ft_bzero(str, 42);
 	base = 0x10;
-	p = va_arg(*(machine->ap), void *);
+	p = va_arg(*(machine->ap), uintptr_t);
 	str[0] = '0';
 	str[1] = 'x';
 	itoa_buff((unsigned long)p, &str[2], base, machine);
 	formalize(str, machine);
 }
-//this code moved to formalize.c
-//static void	add_prefix(t_sm *machine)
-//{
-//	add_to_buff('0', machine);
-//	if (machine->state == ERROR)
-//		return ;
-//	add_to_buff('x', machine);
-//}
-//
-//	size_t			len;
-//	size_t			i;
-//	add_prefix(machine);
-//	if (machine->state == ERROR)
-//		return ;
-//	len = ft_strlen(str);
-//	i = 0;
-//	while (i < len)
-//	{
-//		add_to_buff(str[i], machine);
-//		if (machine->state == ERROR)
-//			return ;
-//		i++;
-//	}
+//note
+//	p = va_arg(*(machine->ap), uintptr_t);
+//		uintptr_t is an integer type.
+//this code is not recommended
+//	p = va_arg(*(machine->ap), void *);
+//		void * is pointer type.
+//		it is often used when the type of the pointed-to object is
+//		not known at compile time , or when you want to write code
+//		that can work with different types of objects.
+//	p = va_arg(*(machine->ap), uintptr);
+//		uintptr is size and behavior may vary depending
+//		on the platform and compiler.

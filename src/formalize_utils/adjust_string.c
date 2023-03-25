@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 12:20:18 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/24 11:12:42 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/25 14:56:12 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,19 @@ void	adjust_string(const char *str, t_sm *machine)
 	if ((machine->flag & BIT_LEFT) != FALSE)
 	{
 		pad_n_str(str, machine, len);
+		if (machine->state == ERROR)
+			return ;
 		pad_width(machine, len);
 	}
 	else
 	{
 		pad_width(machine, len);
+		if (machine->state == ERROR)
+			return ;
 		pad_n_str(str, machine, len);
 	}
 }
 //this code moved to pad_width.c
-//	size_t	i;
 //	i = 0;
 //	while (len + i < machine->width && (machine->state != ERROR))
 //	{
@@ -43,13 +46,14 @@ void	adjust_string(const char *str, t_sm *machine)
 //	}
 //this code moved to pad_n_str.c
 //	i = 0;
-//	while (i < len)
+//	while (i < len && (machine->state != ERROR))
 //	{
 //		add_to_buff(str[i], machine);
-//		if (machine->state == ERROR)
-//			return ;
 //		i++;
 //	}
+//this code is error handle
+//	if (machine->state == ERROR)
+//		return ;
 //debug code
 //#include <stdio.h>// for debug
 //	printf("%d:width\n", machine->width);// for debug

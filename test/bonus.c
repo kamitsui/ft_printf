@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 20:18:43 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/24 10:22:32 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/25 14:17:24 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,6 +144,8 @@ int	main(void)
 	ft_printf("%0+10d\t%%0+10d\tft_printf\tok\n", 42);
 	printf("%+010d\t%%+010d\tprintf\t\tok\n", -42);
 	ft_printf("%+010d\t%%+010d\tft_printf\tok\n", -42);
+	//printf("%-+010d\t%%-+010d\tprintf\t\tok\n", -42);//compile error: flag '0' is ignored when flag '-' is present
+	//ft_printf("%-+010d\t%%-+010d\tft_printf\tok\n", -42);
 	printf("%+-10d\t%%+-10d\tprintf\t\tok\n", 42);
 	ft_printf("%+-10d\t%%+-10d\tft_printf\tok\n", 42);
 	printf("%-+10d\t%%-+10d\tprintf\t\tok\n", 42);

@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 17:20:59 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/24 10:51:31 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/25 17:11:04 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PROCESS_H
 
 # include "ft_printf.h"
+# include <stddef.h>
 
 # define FLAG_ZERO	"0"
 # define FLAG_LEFT	"-"
@@ -71,9 +72,9 @@ int		type(const char *input, t_sm *machine);
 int		error(const char *input, t_sm *machine);
 void	add_to_buff(const char c, t_sm *machine);
 
-typedef int	(*t_f_field)(const char *, t_sm *);
-int	width(const char *input, t_sm *machine);
-int	precision(const char *input, t_sm *machine);
-int	get_field_nbr(const char *input, t_sm *machine);
+typedef int		(*t_f_field)(const char *, t_sm *);
+int		width(const char *input, t_sm *machine);
+int		precision(const char *input, t_sm *machine);
+size_t	get_field_nbr(const char *input, t_sm *machine);
 
 #endif

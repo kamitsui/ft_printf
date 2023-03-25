@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 19:03:38 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/24 11:03:26 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/25 14:52:20 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,11 @@ static void	seq_u_right(const char *str, t_sm *machine)
 	if (len > machine->prec)
 		offset = len;
 	pad_width(machine, offset);
+	if (machine->state == ERROR)
+		return ;
 	pad_prec(machine, len + 1);
+	if (machine->state == ERROR)
+		return ;
 	pad_n_str(str, machine, len);
 }
 
@@ -40,7 +44,11 @@ static void	seq_u_left(const char *str, t_sm *machine)
 	if (len > machine->prec)
 		offset = len;
 	pad_prec(machine, len);
+	if (machine->state == ERROR)
+		return ;
 	pad_n_str(str, machine, len + 1);
+	if (machine->state == ERROR)
+		return ;
 	pad_width(machine, offset);
 }
 
@@ -51,6 +59,6 @@ void	sequence_unsigned(const char *str, t_sm *machine)
 	else
 		seq_u_right(str, machine);
 }
-//must add error handle
+//this code is error handle
 //	if (machine->state == ERROR)
 //		return ;

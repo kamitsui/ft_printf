@@ -1,17 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isxdigit.c                                      :+:      :+:    :+:   */
+/*   pick_pft.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/25 12:34:33 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/25 16:23:54 by kamitsui         ###   ########.fr       */
+/*   Created: 2023/03/25 18:31:43 by kamitsui          #+#    #+#             */
+/*   Updated: 2023/03/25 20:27:24 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isxdigit(int c)
+#include <stdio.h>
+#include "ft_printf.h"
+
+int	main(void)
 {
-	return ((c >= '0' && c <= '9')
-		|| (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F'));
+	ft_printf("---- test 9 ----\n");
+	printf("|%05%|\tprintf\n");
+	ft_printf("|%05%|\tft_printf\n");
+	ft_printf("---- test 10 ----\n");
+	printf("|%-05%|\tprintf\n");
+	ft_printf("|%-05%|\tft_printf\n");
+	return (0);
 }

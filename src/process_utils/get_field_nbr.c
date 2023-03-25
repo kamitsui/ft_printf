@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 21:22:52 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/24 10:52:53 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/25 16:19:54 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,18 @@
 #include <limits.h>
 #include <stddef.h>
 
-int	get_field_nbr(const char *input, t_sm *machine)
+static void	set_field_nbr(size_t num, t_sm *machine)
 {
-	int	size;
-	int	num;
+	if ((machine->flag & BIT_PREC) != FALSE)
+		machine->prec = num;
+	else
+		machine->width = num;
+}
+
+size_t	get_field_nbr(const char *input, t_sm *machine)
+{
+	size_t	size;
+	size_t	num;
 
 	size = 0;
 	num = 0;
@@ -39,26 +47,6 @@ int	get_field_nbr(const char *input, t_sm *machine)
 		num += input[size] - '0';
 		size++;
 	}
-	if ((machine->flag & BIT_PREC) != FALSE)
-		machine->prec = (size_t)num;
-		//machine->prec = num;
-	else
-		machine->width = num;
+	set_field_nbr(num, machine);
 	return (size);
 }
-
-//int	get_field_nbr(char *input, t_sm *machine)
-//{
-//	int	num;
-//	int	size;
-//
-//	num = 0;
-//	size = 0;
-//	if (*input == '0')
-//	{
-//		machine->state = ERROR;
-//		return (-1);
-//	}
-//	size = set_value(input, machine);
-//	return (size);
-//}
