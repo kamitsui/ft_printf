@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 14:27:06 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/23 15:52:01 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/26 10:48:33 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	pad_prec(t_sm *machine, size_t len)
 {
 	size_t	i;
 
+	if (machine->prec == 0)
+		return ;
 	i = 0;
 	while (i + len < machine->prec + 1 && (machine->state != ERROR))
 	{
