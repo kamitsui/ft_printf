@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 20:52:33 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/17 20:06:25 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/28 22:12:08 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,25 @@ int	main(void)
 	printf("\t%p,%p,%p,asdf:%p,c:%p,s:%p,i:%p,h:%p,%lu:%p\tprintf\n", (char *)0, (char *)1, (char *)0xff, "asdf", &c, &s[0], &i, &h[0], ULONG_MAX, (char *)~0);
 	ft_printf("\t%p,%p,%p,asdf:%p,c:%p,s:%p,i:%p,h:%p,%lu:%p\tft_printf\n", (char *)0, (char *)1, (char *)0xff, "asdf", &c, &s[0], &i, &h[0], ULONG_MAX, (char *)~0);
 	free(h);
+	//printf("\t%p\tprintf\n", 2147483648);//does not compile
+	printf("\t%p\t\t\tprintf\t\t%%p 0\n", (void *)0);
+	ft_printf("\t%p\t\t\tft_printf\t%%p 0\n", (void *)0);
+	printf("\t%p\t\tprintf\t\t%%p INT_MAX\n", (void *)INT_MAX);
+	ft_printf("\t%p\t\tft_printf\t%%p INT_MAX\n", (void *)INT_MAX);
+	printf("\t%p\t\tprintf\t\t%%p INT_MAX + 1\n", (void *)2147483648);
+	ft_printf("\t%p\t\tft_printf\t%%p INT_MAX + 1\n", (void *)2147483648);
+	printf("\t%p\tprintf\t\t%%p LONG_MAX\n", (void *)LONG_MAX);
+	ft_printf("\t%p\tft_printf\t%%p LONG_MAX\n", (void *)LONG_MAX);
+	printf("\t%p\tprintf\t\t%%p LONG_MIN\n", (void *)LONG_MIN);
+	ft_printf("\t%p\tft_printf\t%%p LONG_MIN\n", (void *)LONG_MIN);
+	printf("\t%p\tprintf\t\t%%p INT_MIN\n", (void *)INT_MIN);
+	ft_printf("\t%p\tft_printf\t%%p INT_MIN\n", (void *)INT_MIN);
+	printf("\t%p\tprintf\t\t%%p ULONG_MAX\n", (void *)ULONG_MAX);
+	ft_printf("\t%p\tft_printf\t%%p ULONG_MAX\n", (void *)ULONG_MAX);
+	printf("\t%p\tprintf\t\t%%p ~0\n", (void *)~0);
+	ft_printf("\t%p\tft_printf\t%%p ~0\n", (void *)~0);
+	printf("\t%p\tprintf\t\t%%p -1\n", (void *)-1);
+	ft_printf("\t%p\tft_printf\t%%p -1\n", (void *)-1);
 	// %c test is char.c
 	printf("---- %%s ----\n");
 	printf("\t%s\n", "42 tokyo");
