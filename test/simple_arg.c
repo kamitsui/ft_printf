@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 16:45:45 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/23 17:05:32 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/28 18:29:01 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@
 int	main(void)
 {
 //	int	r;
-	printf("|%-10.3s|\t%%-10.3s\targ = '-12345'\tprintf\t\n", "-12345");
-	ft_printf("|%-10.3s|\t%%-10.3s\targ = '-12345'\tft_printf\t\n", "-12345");
+	printf("|%05x|\t%%05x\tprintf\n", 0x42);
+	ft_printf("|%05x|\t%%05x\tft_printf\n", 0x42);
+//	printf("|%-10.3s|\t%%-10.3s\targ = '-12345'\tprintf\t\n", "-12345");
+//	ft_printf("|%-10.3s|\t%%-10.3s\targ = '-12345'\tft_printf\t\n", "-12345");
 	//ft_printf("%llu\tllu\n\n", 42);
 	//ft_printf("%lu\tlu\n\n", 42);
 //	------- ok case --------

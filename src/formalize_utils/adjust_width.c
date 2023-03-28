@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 12:15:46 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/25 20:45:26 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/28 18:44:05 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,11 +88,35 @@ static void	case_other(const char *str, t_sm *machine)
 	}
 }
 
+static void	case_pad_zero(const char *str, t_sm *machine)
+{
+	size_t	literal;
+	size_t	len;
+	size_t	i;
+
+	literal = 2;
+	len = ft_strlen(str);
+	pad_n_str(str, machine, literal);
+	if (machine->state == ERROR)
+		return ;
+	i = 0;
+	while ((i + len < machine->width) && (machine->state != ERROR))
+	{
+		add_to_buff('0', machine);
+		i++;
+	}
+	pad_n_str(&str[literal], machine, len - literal);
+}
+
 void	adjust_width(const char *str, t_sm *machine)
 {
 	if ((machine->flag & (BIT_PLUSE | BIT_SPACE))
 		|| ((machine->flag & (BIT_D | BIT_I)) && str[0] == '-') != FALSE)
 		case_signed_num(str, machine);
+	else if ((machine->flag & BIT_ZERO) && (~machine->flag & BIT_LEFT)
+		&& ((machine->flag & (BIT_P | BIT_X | BIT_XMAJ))
+			&& (machine->flag & BIT_HASH)) != FALSE)
+		case_pad_zero(str, machine);
 	else
 		case_other(str, machine);
 }
