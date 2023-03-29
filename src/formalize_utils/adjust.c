@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:29:09 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/27 15:49:32 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/29 14:39:47 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 
 void	adjust(const char *str, t_sm *machine)
 {
-	if ((machine->flag & BIT_PREC) && (~machine->flag & BIT_C) != FALSE)
+	if ((machine->flag & BIT_PREC) && (~machine->flag & BIT_C)
+		&& (~machine->flag & BIT_PER))
 		adjust_prec(str, machine);
 	else
 		adjust_width(str, machine);
