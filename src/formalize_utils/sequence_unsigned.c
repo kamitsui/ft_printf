@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 19:03:38 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/28 20:52:25 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/29 14:48:43 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,20 @@ static void	case_pad_zero_prec(const char *str, t_sm *machine, size_t len)
 		add_to_buff('0', machine);
 		i++;
 	}
-	pad_n_str(&str[literal], machine, len);
+	pad_n_str(&str[literal], machine, len - literal);
 }
 
 static void	seq_u_right(const char *str, t_sm *machine)
 {
 	size_t	len;
 	size_t	offset;
+	size_t	literal;
 
 	len = ft_strlen(str);
-	offset = machine->prec;
+	literal = 2 * (((machine->flag & BIT_HASH)
+				&& (machine->flag & (BIT_X | BIT_XMAJ)) != FALSE)
+			|| ((machine->flag & BIT_P) != FALSE));
+	offset = machine->prec + literal;
 	if (len > machine->prec)
 		offset = len;
 	pad_width(machine, offset);
