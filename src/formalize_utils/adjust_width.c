@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 12:15:46 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/28 18:44:05 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/29 22:48:49 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 
 static void	seq_zero(const char *str, t_sm *machine)
 {
-	size_t	len;
+	int	len;
 
-	len = ft_strlen(str);
+	len = (int)ft_strlen(str);
 	add_to_buff(str[0], machine);
 	if (machine->state == ERROR)
 		return ;
@@ -41,7 +41,7 @@ static void	seq_zero(const char *str, t_sm *machine)
 
 static void	case_signed_num(const char *str, t_sm *machine)
 {
-	size_t	len;
+	int	len;
 
 	if ((machine->flag & BIT_ZERO) != FALSE)
 	{
@@ -90,9 +90,9 @@ static void	case_other(const char *str, t_sm *machine)
 
 static void	case_pad_zero(const char *str, t_sm *machine)
 {
-	size_t	literal;
-	size_t	len;
-	size_t	i;
+	int	literal;
+	int	len;
+	int	i;
 
 	literal = 2;
 	len = ft_strlen(str);

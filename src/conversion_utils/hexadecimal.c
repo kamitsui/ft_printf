@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:41:26 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/25 17:00:30 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/29 18:12:47 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,16 @@ void	hexadecimal(t_sm *machine)
 	ft_bzero(str, 42);
 	base = 0x10;
 	num = u_va_arg(machine);
-	if ((machine->flag & BIT_HASH) && (num != 0x0) != FALSE)
+	if (!((machine->flag & BIT_PREC) && (machine->prec == 0) && (num == 0)))
 	{
-		adjust_hash(str, machine);
-		itoa_buff(num, &str[2], base, machine);
+		if ((machine->flag & BIT_HASH) != FALSE)
+		{
+			adjust_hash(str, machine);
+			itoa_buff(num, &str[2], base, machine);
+		}
+		else
+			itoa_buff(num, str, base, machine);
 	}
-	else
-		itoa_buff(num, str, base, machine);
 	formalize(str, machine);
 }
 //better idea

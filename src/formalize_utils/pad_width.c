@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 13:41:22 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/25 21:57:26 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/29 22:50:36 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include "process.h"
 #include "libft.h"
 
-static void	pad_zero(t_sm *machine, size_t offset)
+static void	pad_zero(t_sm *machine, int offset)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (((i + offset) < machine->width) && (machine->state != ERROR))
@@ -26,9 +26,9 @@ static void	pad_zero(t_sm *machine, size_t offset)
 	}
 }
 
-static void	pad_space(t_sm *machine, size_t offset)
+static void	pad_space(t_sm *machine, int offset)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (((i + offset) < machine->width) && (machine->state != ERROR))
@@ -38,7 +38,7 @@ static void	pad_space(t_sm *machine, size_t offset)
 	}
 }
 
-void	pad_width(t_sm *machine, size_t offset)
+void	pad_width(t_sm *machine, int offset)
 {
 	if (((machine->flag & BIT_ZERO) != FALSE)
 		&& ((~machine->flag & BIT_LEFT) != FALSE)

@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 12:20:18 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/25 14:56:12 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/29 22:47:49 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 
 void	adjust_string(const char *str, t_sm *machine)
 {
-	size_t	len;
+	int	len;
 
-	len = ft_strlen(str);
-	if (len > machine->prec)
+	len = (int)ft_strlen(str);
+	if ((len > machine->prec) && (machine->prec >= 0))
 		len = machine->prec;
 	if ((machine->flag & BIT_LEFT) != FALSE)
 	{

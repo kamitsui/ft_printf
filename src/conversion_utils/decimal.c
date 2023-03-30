@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 20:15:55 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/25 16:27:41 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/30 12:11:05 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,11 @@ static	size_t	get_digit(long long num)
 	return (len);
 }
 
-void	decimal(t_sm *machine)
+static void	num_to_str(long long num, char *str, t_sm *machine)
 {
-	char		str[42];
-	long long	num;
 	long long	tmp_num;
 	size_t		len;
 
-	ft_bzero(str, 42);
-	num = s_va_arg(machine);
 	tmp_num = num;
 	len = get_digit(num);
 	if (num < 0)
@@ -68,6 +64,17 @@ void	decimal(t_sm *machine)
 	}
 	else
 		itoa_buff(num, str, 10, machine);
+}
+
+void	decimal(t_sm *machine)
+{
+	char		str[42];
+	long long	num;
+
+	ft_bzero(str, 42);
+	num = s_va_arg(machine);
+	if (!((machine->flag & BIT_PREC) && (machine->prec == 0) && (num == 0)))
+		num_to_str(num, str, machine);
 	formalize(str, machine);
 }
 // debug code

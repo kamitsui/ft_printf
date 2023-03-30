@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 19:03:38 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/29 14:48:43 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/29 22:52:29 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 #include "libft.h"
 #include <stddef.h>
 
-static void	case_pad_zero_prec(const char *str, t_sm *machine, size_t len)
+static void	case_pad_zero_prec(const char *str, t_sm *machine, int len)
 {
-	size_t	literal;
-	size_t	i;
+	int	literal;
+	int	i;
 
 	literal = 2;
 	pad_n_str(str, machine, literal);
@@ -34,14 +34,14 @@ static void	case_pad_zero_prec(const char *str, t_sm *machine, size_t len)
 
 static void	seq_u_right(const char *str, t_sm *machine)
 {
-	size_t	len;
-	size_t	offset;
-	size_t	literal;
+	int	len;
+	int	offset;
+	int	literal;
 
-	len = ft_strlen(str);
+	len = (int)ft_strlen(str);
 	literal = 2 * (((machine->flag & BIT_HASH)
-				&& (machine->flag & (BIT_X | BIT_XMAJ)) != FALSE)
-			|| ((machine->flag & BIT_P) != FALSE));
+				&& (machine->flag & (BIT_X | BIT_XMAJ)))
+			|| (machine->flag & BIT_P));
 	offset = machine->prec + literal;
 	if (len > machine->prec)
 		offset = len;
@@ -63,10 +63,10 @@ static void	seq_u_right(const char *str, t_sm *machine)
 
 static void	seq_u_left(const char *str, t_sm *machine)
 {
-	size_t	len;
-	size_t	offset;
+	int	len;
+	int	offset;
 
-	len = ft_strlen(str);
+	len = (int)ft_strlen(str);
 	offset = machine->prec;
 	if (len > machine->prec)
 		offset = len;
@@ -89,3 +89,12 @@ void	sequence_unsigned(const char *str, t_sm *machine)
 //this code is error handle
 //	if (machine->state == ERROR)
 //		return ;
+//void code from seq_u_right
+//	if (machine->prec == 0)
+//	{
+////		if ((str[literal] == '0') && (machine->flag & BIT_P))
+//			pad_n_str(str, machine, literal);
+////		else
+////			pad_n_str(str, machine, len);
+//		return ;
+//	}

@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 10:51:46 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/24 11:10:11 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/29 22:49:52 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 
 void	pad_str(const char *str, t_sm *machine)
 {
-	size_t	i;
-	size_t	len;
+	int	i;
+	int	len;
 
 	i = 0;
-	len = ft_strlen(str);
+	len = (int)ft_strlen(str);
 	while (i < len && (machine->state != ERROR))
 	{
 		add_to_buff(str[i], machine);

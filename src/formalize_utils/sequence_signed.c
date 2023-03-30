@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 19:04:40 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/25 14:51:31 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/03/29 22:51:28 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 
 static void	seq_s_right(const char *str, t_sm *machine)
 {
-	size_t	len;
-	size_t	offset;
+	int	len;
+	int	offset;
 
-	len = ft_strlen(str);
+	len = (int)ft_strlen(str);
 	offset = machine->prec + 1;
 	if (len > machine->prec)
 		offset = len;
@@ -39,10 +39,10 @@ static void	seq_s_right(const char *str, t_sm *machine)
 
 static void	seq_s_left(const char *str, t_sm *machine)
 {
-	size_t	len;
-	size_t	offset;
+	int	len;
+	int	offset;
 
-	len = ft_strlen(str);
+	len = (int)ft_strlen(str);
 	offset = machine->prec + 1;
 	if (len > machine->prec)
 		offset = len;
