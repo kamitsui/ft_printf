@@ -6,12 +6,11 @@
 #    By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/09 14:39:52 by kamitsui          #+#    #+#              #
-#    Updated: 2023/03/25 14:47:09 by kamitsui         ###   ########.fr        #
+#    Updated: 2023/03/30 12:43:50 by kamitsui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Directories
-#SRC_DIR = src
 SRC_DIR = src \
 		  src/process_utils \
 		  src/conversion_utils \
@@ -93,26 +92,17 @@ vpath %.c $(SRC_DIR)
 
 # Compiler
 CC = cc
-#CFLAGS = -Wall -Wextra -Werror
-CFLAGS = -Wall -Wextra -Werror -g
-#CFLAGS = -Wall -Wextra -Werror -fsanitize=address
-#CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
-DFLAGS = -MMD -MP -MF $(@:$(OBJ_DIR)/%.o=$(DEP_DIR)/%.d)
-IFLAGS = -I$(INC_DIR)
-#LFLAGS = -L$(LIBFT_DIR) -lft
+CFLAGS = -Wall -Wextra -Werror -g -MMD -MP -MF $(@:$(OBJ_DIR)/%.o=$(DEP_DIR)/%.d)
+INC = -I$(INC_DIR)
 
 # Rules for building object files
-#$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(SRC_DIR)/%/%.c $(DEP_DIR)/%.d
 $(OBJ_DIR)/%.o: %.c
 	@mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) $(DFLAGS) $(IFLAGS) -c $< -o $@
+	@mkdir -p $(DEP_DIR)
+	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
-#$(DEP_DIR)/%.d: $(SRC_DIR)/%.c $(SRC_DIR)/%/%.c
 $(DEP_DIR)/%.d: %.c
 	@mkdir -p $(DEP_DIR)
-	$(CC) $(CFLAGS) $(DFLAGS) $(IFLAGS) -c $< -o /dev/null
-
-#$(DEPS):
 
 # Default target
 all: $(NAME)
@@ -121,8 +111,6 @@ all: $(NAME)
 $(NAME): $(LIBFT) $(DEPS) $(OBJS)
 	cp $(LIBFT) $@
 	ar rcs $@ $(OBJS)
-#	ranlib $@
-#	ar rcs $@ $^
 
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
@@ -140,6 +128,6 @@ fclean: clean
 # Rebuild target
 re: fclean all
 
-#include $(DEPS)
+-include $(DEPS)
 
 .PHONY: all bonus clean fclean re
