@@ -6,7 +6,7 @@
 #    By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/11 20:51:49 by kamitsui          #+#    #+#              #
-#    Updated: 2023/03/25 12:36:46 by kamitsui         ###   ########.fr        #
+#    Updated: 2023/03/30 12:58:56 by kamitsui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,20 +46,17 @@ LIB = libft.a
 
 # Compiler
 CC = cc
-#CFLAGS = -Wall -Werror -Wextra
-CFLAGS = -Wall -Werror -Wextra -g
-#CFLAGS = -Wall -Werror -Wextra -g -fsanitize=address
-DFLAGS = -MMD -MP -MF $(@:$(OBJ_DIR)/%.o=$(DEP_DIR)/%.d)
+CFLAGS = -Wall -Werror -Wextra -g -MMD -MP -MF $(@:$(OBJ_DIR)/%.o=$(DEP_DIR)/%.d)
 INC = -I$(INC_DIR)
 
 # Rules for building object files
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(DEP_DIR)/%.d
 	@mkdir -p $(OBJ_DIR)
+	@mkdir -p $(DEP_DIR)
 	$(CC) $(CFLAGS) $(DFLAGS) $(INC) -c $< -o $@
 
 $(DEP_DIR)/%.d: $(SRC_DIR)/%.c
 	@mkdir -p $(DEP_DIR)
-	$(CC) $(CFLAGS) $(DFLAGS) $(INC) -c $< -o /dev/null
 
 # Default target
 all: $(LIB)
@@ -81,6 +78,6 @@ fclean: clean
 # Rebould target
 re: fclean all
 
-#-include $(DEPS)# Why???? error
+-include $(DEPS)
 
 .PHONY: all clean fclean re
