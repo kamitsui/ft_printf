@@ -6,7 +6,7 @@
 /*   By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 14:49:27 by kamitsui          #+#    #+#             */
-/*   Updated: 2023/03/28 22:27:11 by kamitsui         ###   ########.fr       */
+/*   Updated: 2023/06/20 20:41:32 by kamitsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,30 @@ int	ft_printf(const char *input, ...)
 	t_sm	machine;
 	va_list	ap;
 
+	va_start(ap, input);
+	initialize_machine(&machine, &ap);
+	process(input, &machine);
+	if (machine.state != ERROR)
+	{
+		machine.out = join_to_out(machine.out, machine.buffer, machine.len);
+		if (machine.out == NULL)
+			return (-1);
+		machine.out_size = write(1, machine.out, machine.out_size);
+	}
+	free(machine.out);
+	va_end(ap);
+	if (machine.state == ERROR)
+		return (-1);
+	return (machine.out_size);
+}
+
+int	ft_fprintf(int fd, const char *input, ...)
+{
+	t_sm	machine;
+	va_list	ap;
+
+	dup2(fd, STDOUT_FILENO);
+	close(fd);
 	va_start(ap, input);
 	initialize_machine(&machine, &ap);
 	process(input, &machine);
