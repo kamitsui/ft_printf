@@ -6,7 +6,7 @@
 #    By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/09 14:39:52 by kamitsui          #+#    #+#              #
-#    Updated: 2023/09/07 11:54:53 by kamitsui         ###   ########.fr        #
+#    Updated: 2023/09/07 12:59:20 by kamitsui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,14 +94,16 @@ vpath %.c $(SRCS_DIR)
 
 # Compiler
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g -MMD -MP -MF $(@:$(OBJ_DIR)/%.o=$(DEP_DIR)/%.d)
-INC = -I$(INC_DIR)
+CF = -Wall -Wextra -Werror
+LDF = -g -fsanitize=address
+INC_CF = -I$(INC_DIR)
+DEP_CF = -MMD -MP -MF $(@:$(OBJ_DIR)/%.o=$(DEP_DIR)/%.d)
 
 # Rules for building object files
 $(OBJ_DIR)/%.o: %.c
 	@mkdir -p $(OBJ_DIR)
 	@mkdir -p $(DEP_DIR)
-	$(CC) $(CFLAGS) $(INC) -c $< -o $@
+	$(CC) $(CF) $(INC_CF) $(DEP_CF) -c $< -o $@
 
 $(DEP_DIR)/%.d: %.c
 	@mkdir -p $(DEP_DIR)
