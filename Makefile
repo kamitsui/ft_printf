@@ -6,7 +6,7 @@
 #    By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/09 14:39:52 by kamitsui          #+#    #+#              #
-#    Updated: 2023/09/07 12:59:20 by kamitsui         ###   ########.fr        #
+#    Updated: 2023/09/07 13:02:13 by kamitsui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,9 @@ SRCS_DIR = srcs \
 		  srcs/conversion_utils/unsigned_arg \
 		  srcs/conversion_utils/signed_arg \
 		  srcs/formalize_utils
-OBJ_DIR = obj
+OBJ_DIR = objs
 INC_DIR = includes
-DEP_DIR = .dep
+DEP_DIR = .deps
 LIBFT_DIR = ../libft
 
 # Source files
