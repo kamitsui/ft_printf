@@ -6,7 +6,7 @@
 #    By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/09 14:39:52 by kamitsui          #+#    #+#              #
-#    Updated: 2023/09/07 18:54:28 by kamitsui         ###   ########.fr        #
+#    Updated: 2024/04/24 08:53:25 by kamitsui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ OBJ_DIR = objs
 INC_DIR = includes
 DEP_DIR = .deps
 LIBFT_DIR = ../libft
+PROJECT_DIR = $(notdir $(CURDIR))
 
 # Source files
 SRCS = \
@@ -110,29 +111,47 @@ $(DEP_DIR)/%.d: %.c
 	@mkdir -p $(DEP_DIR)
 
 # Default target
-all: $(NAME)
+all: start $(NAME) end
+.PHONY: all
+
+start:
+	@echo "${YELLOW}Starting build process for '${PROJECT_DIR}'...${NC}"
+
+end:
+	@echo "${YELLOW}Build process completed.${NC}"
 
 # Library target
 $(NAME): $(LIBFT) $(DEPS) $(OBJS)
 	cp $(LIBFT) $@
 	ar rcs $@ $(OBJS)
+	@echo "${GREEN}Successfully created archive: $@${NC}"
 
 $(LIBFT):
 	make -C $(LIBFT_DIR)
 
 bonus: $(NAME)
+.PHONY: bonus
 
 # Clean target
 clean:
+	@echo "${RED}Cleaning object files of '${PROJECT_DIR}'...${NC}"
 	rm -rf $(OBJ_DIR) $(DEP_DIR)
+.PHONY: clean
 
 # Clean and remove library target
 fclean: clean
+	@echo "${RED}Removing archive file...${NC}"
 	rm -f $(NAME)
+	@echo "${GREEN}Archive file removed.${NC}"
+.PHONY: fclean
 
 # Rebuild target
 re: fclean all
 
 -include $(DEPS)
 
-.PHONY: all bonus clean fclean re
+# Color Definitions
+RED=\033[0;31m
+GREEN=\033[0;32m
+YELLOW=\033[0;33m
+NC=\033[0m # No Color
