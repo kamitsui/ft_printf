@@ -6,7 +6,7 @@
 #    By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/09 14:39:52 by kamitsui          #+#    #+#              #
-#    Updated: 2024/04/24 08:53:25 by kamitsui         ###   ########.fr        #
+#    Updated: 2024/06/13 15:01:48 by kamitsui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -95,17 +95,17 @@ vpath %.c $(SRCS_DIR)
 
 # Compiler
 CC = cc
-CF = -Wall -Wextra -Werror
-LDF = -g -fsanitize=address
-INC_CF = -I$(INC_DIR)
-DEP_CF = -MMD -MP -MF $(@:$(OBJ_DIR)/%.o=$(DEP_DIR)/%.d)
+CFLAGS = -Wall -Wextra -Werror
+CF_ASAN = -g -fsanitize=address
+CF_THSAN = -g -fsanitize=thread
+CF_INC = -I$(INC_DIR)
+CF_DEP = -MMD -MP -MF $(@:$(OBJ_DIR)/%.o=$(DEP_DIR)/%.d)
 
 # Rules for building object files
 $(OBJ_DIR)/%.o: %.c
 	@mkdir -p $(OBJ_DIR)
 	@mkdir -p $(DEP_DIR)
-	$(CC) $(CF) $(INC_CF) $(DEP_CF) -c $< -o $@
-#	$(CC) $(CF) $(INC_CF) $(DEP_CF) -c $< -o $@ $(LDF)
+	$(CC) $(CFLAGS) $(CF_INC) $(CF_DEP) -c $< -o $@
 
 $(DEP_DIR)/%.d: %.c
 	@mkdir -p $(DEP_DIR)
@@ -132,6 +132,16 @@ $(LIBFT):
 bonus: $(NAME)
 .PHONY: bonus
 
+# Address sanitizer mode make rule
+asan: fclean
+	make WITH_ASAN=1
+.PHONY: asan
+
+# Thread sanitizer mode make rule
+thsan: fclean
+	make WITH_THSAN=1
+.PHONY: thsan
+
 # Clean target
 clean:
 	@echo "${RED}Cleaning object files of '${PROJECT_DIR}'...${NC}"
@@ -148,7 +158,18 @@ fclean: clean
 # Rebuild target
 re: fclean all
 
+# Enable dependency file
 -include $(DEPS)
+
+# Enabel Address sanitizer
+ifdef WITH_ASAN
+CFLAGS += $(CF_ASAN)
+endif
+
+# Enabel Thread sanitizer
+ifdef WITH_THSAN
+CFLAGS += $(CF_THSAN)
+endif
 
 # Color Definitions
 RED=\033[0;31m
