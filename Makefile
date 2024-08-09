@@ -6,7 +6,7 @@
 #    By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/09 14:39:52 by kamitsui          #+#    #+#              #
-#    Updated: 2024/06/13 15:01:48 by kamitsui         ###   ########.fr        #
+#    Updated: 2024/08/09 17:55:09 by kamitsui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -98,6 +98,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 CF_ASAN = -g -fsanitize=address
 CF_THSAN = -g -fsanitize=thread
+CF_GENERATE_DEBUG_INFO = -g
 CF_INC = -I$(INC_DIR)
 CF_DEP = -MMD -MP -MF $(@:$(OBJ_DIR)/%.o=$(DEP_DIR)/%.d)
 
@@ -142,6 +143,11 @@ thsan: fclean
 	make WITH_THSAN=1
 .PHONY: thsan
 
+# Leak check
+check: fclean
+	make WITH_G_INFO=1
+.PHONY: check
+
 # Clean target
 clean:
 	@echo "${RED}Cleaning object files of '${PROJECT_DIR}'...${NC}"
@@ -169,6 +175,11 @@ endif
 # Enabel Thread sanitizer
 ifdef WITH_THSAN
 CFLAGS += $(CF_THSAN)
+endif
+
+# Generate debug infomation for Enabel valgrind or leaks tool
+ifdef WITH_G_INFO
+CFLAGS += $(CF_GENERATE_DEBUG_INFO)
 endif
 
 # Color Definitions
