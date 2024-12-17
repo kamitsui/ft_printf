@@ -6,7 +6,7 @@
 #    By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/09 14:39:52 by kamitsui          #+#    #+#              #
-#    Updated: 2024/08/09 17:55:09 by kamitsui         ###   ########.fr        #
+#    Updated: 2024/12/18 03:17:20 by kamitsui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,6 @@ PROJECT_DIR = $(notdir $(CURDIR))
 # Source files
 SRCS = \
 	   ft_printf.c \
-	   ft_dprintf.c \
 	   initialize.c \
 	   process.c \
 	   conversion.c \
