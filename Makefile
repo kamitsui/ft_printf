@@ -6,7 +6,7 @@
 #    By: kamitsui <kamitsui@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/09 14:39:52 by kamitsui          #+#    #+#              #
-#    Updated: 2024/08/09 17:55:09 by kamitsui         ###   ########.fr        #
+#    Updated: 2024/12/20 15:55:21 by kamitsui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -128,6 +128,10 @@ $(NAME): $(LIBFT) $(DEPS) $(OBJS)
 	@echo "${GREEN}Successfully created archive: $@${NC}"
 
 $(LIBFT):
+	@if [ ! -d "$(LIBFT_DIR)" ]; then \
+		echo "Error: LIBFT_DIR directory does not exist."; \
+		exit 1; \
+	fi
 	make -C $(LIBFT_DIR)
 
 bonus: $(NAME)
